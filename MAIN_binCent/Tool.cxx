@@ -39,7 +39,7 @@ Tool::Tool(int runNum)
 		}
 	}
 
-	TFile* fInEff = new TFile("INPUT/trkEff.root","READ");
+	TFile* fInEff = new TFile("/phenix/plhf/mzhou/AnaCumu_PbPb502/MAIN_binCent/INPUT/trkEff.root","READ");
 	allTrue = (TH3D*)fInEff->Get("allTrue");
 	allReco = (TH3D*)fInEff->Get("allReco");
 	matchedReco = (TH3D*)fInEff->Get("matchedReco");
@@ -47,14 +47,14 @@ Tool::Tool(int runNum)
 	matchedReco->Divide(allTrue);
 	unMatchedReco->Divide(allReco);
 
-	TFile* fInTrig = new TFile("INPUT/trigWeight.root","READ");
+	TFile* fInTrig = new TFile("/phenix/plhf/mzhou/AnaCumu_PbPb502/MAIN_binCent/INPUT/trigWeight.root","READ");
 	hTrigAll = (TH1D*)fInTrig->Get("disFCal_Trig0");
 	hTrigAll->Rebin(2);
 	hTrigMB = (TH1D*)fInTrig->Get("disFCal_Trig1");
 	hTrigMB->Rebin(2);
 	hTrigAll->Divide(hTrigMB);
 
-	TFile* fInCvt = new TFile("INPUT/hist_cvt.root","READ");
+	TFile* fInCvt = new TFile("/phenix/plhf/mzhou/AnaCumu_PbPb502/MAIN_binCent/INPUT/hist_cvt.root","READ");
 	gCvt_FCal_Cent = (TGraphErrors*)fInCvt->Get("gCvt_FCal_Cent");
 }
 

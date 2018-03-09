@@ -33,3 +33,12 @@
 
 # Temporary files
 *.swp
+
+# Root files
+*.root
+!hist_cvt.root
+!trigWeight.root
+!trkEff.root
+
+jobPhase*
+*.pdf

@@ -19,9 +19,9 @@ void Phase1::execute(int iJob)
 
 	TRandom3 ran(42);
 	Event* evt = new Event(treeIn);
-	for(int iEvt=0; iEvt<treeIn->GetEntries(); iEvt++)
+	for(int iEvt=0; iEvt<treeIn->GetEntries()/1000; iEvt++)
 	{
-		if(iEvt%1000==1)
+		if(iEvt%1000==0)
 		{
 			for(int i=0; i<100.*iEvt/treeIn->GetEntries(); i++) cout<<"#";
 			cout<<">>>";
@@ -56,8 +56,7 @@ void Phase1::initialize(int iJob)
 	cout<<"initialize..."<<endl;
 
 	treeIn = new TChain("HeavyIonD3PD");
-	ifstream lis("INPUT/flist_PbPb502.txt");
-	int cnt = 0;
+	ifstream lis("/phenix/plhf/mzhou/AnaCumu_PbPb502/MAIN_binCent/INPUT/flist_PbPb502.txt");
 	char runName[200];
 	while(!lis.eof())
 	{
@@ -68,7 +67,6 @@ void Phase1::initialize(int iJob)
 		cout<<fName.c_str()<<endl;
 		if(!fName.empty()) treeIn->Add(fName.c_str());
 		else break;
-		cnt++;
 	}
 
 	tool = new Tool(runs[int(1.*iJob/nSample)]);
@@ -79,7 +77,7 @@ void Phase1::finalize(int iJob)
 {
 	cout<<"finalize..."<<endl;
 
-	sprintf(name,"OUTPUT_Phase1/Phase1_Sample%d_File%d.root",iJob%nSample,int(1.*iJob/nSample));
+	sprintf(name,"/phenix/plhf/mzhou/AnaCumu_PbPb502/MAIN_binCent/OUTPUT/Phase1/Phase1_Sample%d_File%d.root",iJob%nSample,int(1.*iJob/nSample));
 	TFile* fOut = new TFile(name,"RECREATE");
 	corr->writeHist(fOut);
 }
