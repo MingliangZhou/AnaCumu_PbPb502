@@ -19,9 +19,9 @@ void Phase1::execute(int iJob)
 
 	TRandom3 ran(42);
 	Event* evt = new Event(treeIn);
-	for(int iEvt=0; iEvt<treeIn->GetEntries()/1000; iEvt++)
+	for(int iEvt=0; iEvt<treeIn->GetEntries(); iEvt++)
 	{
-		if(iEvt%1000==0)
+		if(iEvt%10000==0)
 		{
 			for(int i=0; i<100.*iEvt/treeIn->GetEntries(); i++) cout<<"#";
 			cout<<">>>";
