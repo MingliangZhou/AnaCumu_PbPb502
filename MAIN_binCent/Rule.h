@@ -38,7 +38,7 @@ const double cutQual = 1; // track quality cut
 const unsigned int nBin = 800; // number of bins for cumulant calculation
 const double minBin = 0; // minimum centrality
 const double maxBin = 80; // maximum centrality
-const unsigned int nRebin = 80; // number of bins for final results
+const unsigned int nRebin[5] = {400, 80, 40, 16, 8}; // number of bins for final results
 
 const unsigned int NV = 5; // harmonics from v0 to v4
 const unsigned int NVm = 13; // higher harmonics for Q-cumulant with weights, from v0 to v12

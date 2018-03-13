@@ -5,6 +5,8 @@ root -b -l <<EOF
 .L ../Event.cxx+
 .L ../MultiCorr.cxx+
 .L ../Phase1.cxx+
+.L ../Cumu.cxx+
+.L ../Phase2.cxx+
 .q
 EOF
 
