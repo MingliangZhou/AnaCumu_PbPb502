@@ -233,6 +233,7 @@ void MultiCorr::writeHist(TFile*& fOut)
 			psc4_1sub_wght[iV][iP]->Write();
 			pac3_1sub_mean[iV][iP]->Write();
 			pac3_1sub_wght[iV][iP]->Write();
+			/* don't save BG
 			for(unsigned int iA=0; iA<NA; iA++)
 			{
 				pc2_1_1sub_BG_mean[iA][iV][iP]->Write();
@@ -246,6 +247,7 @@ void MultiCorr::writeHist(TFile*& fOut)
 				pc4_1sub_BG_mean[iA][iV][iP]->Write();
 				pc4_1sub_BG_wght[iA][iV][iP]->Write();
 			}
+			*/
 		}
 	}
 

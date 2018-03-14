@@ -42,9 +42,9 @@ const unsigned int nRebin[5] = {400, 80, 40, 16, 8}; // number of bins for final
 
 const unsigned int NV = 5; // harmonics from v0 to v4
 const unsigned int NVm = 13; // higher harmonics for Q-cumulant with weights, from v0 to v12
-const unsigned int NP = 9; // number of pT cuts for differential particles
-const double minPt[NP] = {0.5, 0.7, 1.0, 1.2, 1.5, 1.7, 2.0, 2.5, 3.0}; // minimum pT for reference particles
-const double maxPt[NP] = {5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0}; // maximum pT for reference particles
+const unsigned int NP = 7; // number of pT cuts for differential particles
+const double minPt[NP] = {0.5, 0.7, 1.0, 1.2, 1.5, 1.7, 2.0}; // minimum pT for reference particles
+const double maxPt[NP] = {5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0}; // maximum pT for reference particles
 const unsigned int NW = 7; // power of weights for Q-cumulant calcualtion: 0 to 6
 const unsigned int NA = 3; // number of permutation for 3-subevent
 

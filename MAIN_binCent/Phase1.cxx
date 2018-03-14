@@ -34,19 +34,20 @@ void Phase1::execute(int iJob)
 		if(!(evt->isGoodEvent())) continue;
 		evt->setEvent(tool);
 
-		int tagMixZvtx = 0; int tagMixCent = 0;
-		if(!detMixZvtxCent(evt->evtZvtx(),evt->evtCls(),tagMixZvtx,tagMixCent)) continue;
+		// speed up without mixed events
+		//int tagMixZvtx = 0; int tagMixCent = 0;
+		//if(!detMixZvtxCent(evt->evtZvtx(),evt->evtCls(),tagMixZvtx,tagMixCent)) continue;
 
-		Event* evtTmp = new Event(*evt);
-		EventPool[tagMixZvtx][tagMixCent].push_back(evtTmp);
-		if(EventPool[tagMixZvtx][tagMixCent].size()<nDepth) continue;
+		//Event* evtTmp = new Event(*evt);
+		//EventPool[tagMixZvtx][tagMixCent].push_back(evtTmp);
+		//if(EventPool[tagMixZvtx][tagMixCent].size()<nDepth) continue;
 
 		corr->fill_1sub(evt);
-		corr->fill_1sub_BG(EventPool[tagMixZvtx][tagMixCent]);
+		//corr->fill_1sub_BG(EventPool[tagMixZvtx][tagMixCent]);
 		corr->fill_3sub(evt);
 
-		delete EventPool[tagMixZvtx][tagMixCent].at(0);
-		EventPool[tagMixZvtx][tagMixCent].erase( EventPool[tagMixZvtx][tagMixCent].begin() );
+		//delete EventPool[tagMixZvtx][tagMixCent].at(0);
+		//EventPool[tagMixZvtx][tagMixCent].erase( EventPool[tagMixZvtx][tagMixCent].begin() );
 	}
 	delete evt;
 }

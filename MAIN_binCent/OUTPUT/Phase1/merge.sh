@@ -40,7 +40,5 @@ hadd Phase1_Sample18.root Phase1_Sample18_*
 rm -rf Phase1_Sample19.root
 hadd Phase1_Sample19.root Phase1_Sample19_*
 
-rm -rf Phase1_Sample*File*.root
-
 rm -rf Phase1_All.root
-hadd Phase1_All.root Phase1_Sample*
+hadd Phase1_All.root Phase1_Sample0.root Phase1_Sample1.root Phase1_Sample2.root Phase1_Sample3.root Phase1_Sample4.root Phase1_Sample5.root Phase1_Sample6.root Phase1_Sample7.root Phase1_Sample8.root Phase1_Sample9.root Phase1_Sample10.root Phase1_Sample11.root Phase1_Sample12.root Phase1_Sample13.root Phase1_Sample14.root Phase1_Sample15.root Phase1_Sample16.root Phase1_Sample17.root Phase1_Sample18.root Phase1_Sample19.root

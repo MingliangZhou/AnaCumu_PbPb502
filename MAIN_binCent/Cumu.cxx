@@ -35,6 +35,9 @@ Cumu::Cumu(TFile* fIn, unsigned int iRebin)
 			sprintf(name,"raw_cnt_3sub_Pm%d_Pt%d",iA,iP);
 			raw_cnt_3sub[iA][iP] = (TH1D*)cnt_3sub[iA][iP]->Clone(name);
 			raw_cnt_3sub[iA][iP]->Rebin(nBin/nRebin[0]);
+			sprintf(name,"rbn_cnt_3sub_Pm%d_Pt%d",iA,iP);
+			rbn_cnt_3sub[iA][iP] = (TH1D*)cnt_3sub[iA][iP]->Clone(name);
+			rbn_cnt_3sub[iA][iP]->Rebin(nBin/nRebin[iRebin]);
 			for(unsigned int iV=0; iV<NV; iV++)
 			{
 				readHist_AVP(fIn,pc2_1_3sub_mean[iA][iV][iP],"pc2_1_3sub_mean",iA,iV,iP);

@@ -9,6 +9,7 @@ The workflow is as flows
 	* Cumu: calculation of cumulants
 	* Phase2: wrap up and submit for the cumulant calculation
 	* Phase3: calculation of statistical errors and finalization of the results into graphs
+	* Plot: making all the monitoring physics plots without systematics
 
 RUN/compile.sh: compile the code
 RUN/SUBMIT/submit_Phase1.sh: submit Phase1 production to condor

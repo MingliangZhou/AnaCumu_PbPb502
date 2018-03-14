@@ -8,6 +8,7 @@ root -b -l <<EOF
 .L ../Cumu.cxx+
 .L ../Phase2.cxx+
 .L ../Phase3.cxx+
+.L ../Plot.cxx+
 .q
 EOF
 
