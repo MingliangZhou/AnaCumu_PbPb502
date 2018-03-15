@@ -85,8 +85,8 @@ void Phase3::initialize(unsigned int iBin)
 	TFile* fIn[nSample+1];
 	for(unsigned int iSample=0; iSample<=nSample; iSample++)
 	{
-		if(iSample<nSample) sprintf(name,"/phenix/plhf/mzhou/AnaCumu_PbPb502/MAIN_binCent/OUTPUT_Phase2/bin%d/Phase2_Sample%d.root",iBin,iSample);
-		else sprintf(name,"/phenix/plhf/mzhou/AnaCumu_PbPb502/MAIN_binCent/OUTPUT_Phase2/bin%d/Phase2_All.root",iBin);
+		if(iSample<nSample) sprintf(name,"../OUTPUT/Phase2/bin%d/Phase2_Sample%d.root",iBin,iSample);
+		else sprintf(name,"../OUTPUT/Phase2/bin%d/Phase2_All.root",iBin);
 		fIn[iSample] = new TFile(name,"READ");
 		if(iSample==nSample)
 		{
@@ -127,7 +127,7 @@ void Phase3::finalize(unsigned int iBin)
 {
 	cout<<"finalize..."<<endl;
 
-	sprintf(name,"/phenix/plhf/mzhou/AnaCumu_PbPb502/MAIN_binCent/OUTPUT_Phase3/Phase3_bin%d.root",iBin);
+	sprintf(name,"../OUTPUT/Phase3/Phase3_bin%d.root",iBin);
 	TFile* fOut = new TFile(name,"RECREATE");
 	fOut->cd();
 	for(unsigned int iV=0; iV<NV; iV++)

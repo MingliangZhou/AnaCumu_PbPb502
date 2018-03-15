@@ -384,9 +384,9 @@ void Cumu::run_nac_1sub()
 	{
 		for(unsigned int iP=0; iP<NP; iP++)
 		{
-			if(iV==0) cal_nac(raw_p4_3sub[0][1][iP], raw_c2_3sub[1][2][iP], raw_ac_1sub[iV][iP], raw_nac_1sub[iV][iP]);
-			if(iV==1) cal_nac(raw_p4_3sub[0][2][iP], raw_c2_3sub[1][4][iP], raw_ac_1sub[iV][iP], raw_nac_1sub[iV][iP]);
-			if(iV==2) cal_nac(raw_p4_3sub[0][2][iP], raw_c2_3sub[1][4][iP], raw_ac_1sub[iV][iP], raw_nac_1sub[iV][iP]);
+			if(iV==0) cal_nac(raw_c4_3sub[0][1][iP],raw_c2_3sub[1][1][iP],raw_c2_3sub[1][2][iP],raw_ac_1sub[iV][iP],raw_nac_1sub[iV][iP]);
+			if(iV==1) cal_nac(raw_c4_3sub[0][1][iP],raw_c2_3sub[1][1][iP],raw_c2_3sub[1][3][iP],raw_ac_1sub[iV][iP],raw_nac_1sub[iV][iP]);
+			if(iV==2) cal_nac(raw_c4_3sub[0][2][iP],raw_c2_3sub[1][2][iP],raw_c2_3sub[1][4][iP],raw_ac_1sub[iV][iP],raw_nac_1sub[iV][iP]);
 
 			rebin_cumu(raw_nac_1sub[iV][iP],raw_cnt_1sub[iV],rbn_nac_1sub[iV][iP]);
 		}
@@ -451,9 +451,9 @@ void Cumu::run_nac_3sub()
 		{
 			for(unsigned int iP=0; iP<NP; iP++)
 			{
-				if(iV==0) cal_nac(raw_p4_3sub[0][1][iP], raw_c2_3sub[1][2][iP], raw_ac_3sub[iA][iV][iP], raw_nac_3sub[iA][iV][iP]);
-				if(iV==1) cal_nac(raw_p4_3sub[0][2][iP], raw_c2_3sub[1][4][iP], raw_ac_3sub[iA][iV][iP], raw_nac_3sub[iA][iV][iP]);
-				if(iV==2) cal_nac(raw_p4_3sub[0][2][iP], raw_c2_3sub[1][4][iP], raw_ac_3sub[iA][iV][iP], raw_nac_3sub[iA][iV][iP]);
+				if(iV==0) cal_nac(raw_c4_3sub[0][1][iP],raw_c2_3sub[1][1][iP],raw_c2_3sub[1][2][iP],raw_ac_3sub[iA][iV][iP],raw_nac_3sub[iA][iV][iP]);
+				if(iV==1) cal_nac(raw_c4_3sub[0][1][iP],raw_c2_3sub[1][1][iP],raw_c2_3sub[1][3][iP],raw_ac_3sub[iA][iV][iP],raw_nac_3sub[iA][iV][iP]);
+				if(iV==2) cal_nac(raw_c4_3sub[0][2][iP],raw_c2_3sub[1][2][iP],raw_c2_3sub[1][4][iP],raw_ac_3sub[iA][iV][iP],raw_nac_3sub[iA][iV][iP]);
 
 				rebin_cumu(raw_nac_3sub[iA][iV][iP],raw_cnt_3sub[iA][iV],rbn_nac_3sub[iA][iV][iP]);
 			}
@@ -528,16 +528,18 @@ void Cumu::cal_nsc(TH1D* c2_1, TH1D* c2_2, TH1D* sc4, TH1D* nsc4)
 	}
 }
 
-void Cumu::cal_nac(TH1D* c4, TH1D* c2, TH1D* ac3, TH1D* nac3)
+void Cumu::cal_nac(TH1D* c4, TH1D* c2_1, TH1D* c2_2, TH1D* ac3, TH1D* nac3)
 {
 	int NX = c4->GetNbinsX();
 	for(int iX=0; iX<NX; iX++)
 	{
 		double p4 = c4->GetBinContent(iX+1);
-		double p2 = c2->GetBinContent(iX+1);
+		double p2_1 = c2_1->GetBinContent(iX+1);
+		double p2_2 = c2_2->GetBinContent(iX+1);
 		double pa3 = ac3->GetBinContent(iX+1);
-		if(p4*p2>0) nac3->SetBinContent(iX+1,pa3/sqrt(p4*p2));
-		else if(p4*p2<0) nac3->SetBinContent(iX+1,pa3/sqrt(-p4*p2));
+		p4 += 2.*pow(p2_1,2);
+		if(p4*p2_2>0) nac3->SetBinContent(iX+1,pa3/sqrt(p4*p2_2));
+		else if(p4*p2_2<0) nac3->SetBinContent(iX+1,pa3/sqrt(-p4*p2_2));
 	}
 }
 

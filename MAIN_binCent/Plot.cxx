@@ -39,10 +39,142 @@ void Plot::execute(unsigned int iBin)
 {
   cout<<"execute..."<<endl;
 
-	sprintf(name,"/phenix/plhf/mzhou/AnaCumu_PbPb502/MAIN_binCent/PLOT/bin%d/canvas.root",iBin);
+	sprintf(name,"../PLOT/bin%d/canvas.root",iBin);
 	TFile* fOut = new TFile(name,"RECREATE");
 	fOut->cd();
 	vector<TGraphErrors*> gVec;
+
+	// 0: mtd_c2
+	for(unsigned int iV=2; iV<NV; iV++)
+	{
+		for(unsigned int iP=0; iP<NP; iP++)
+		{
+			gVec.push_back(c2_1sub[iV][iP]);
+			gVec.push_back(c2_3sub[iV][iP]);
+			draw_graph(gVec,iV,iP,0,iBin);
+			gVec.clear();
+		}
+	}
+
+	// 1: mtd_c4
+	for(unsigned int iV=1; iV<NV; iV++)
+	{
+		for(unsigned int iP=0; iP<NP; iP++)
+		{
+			gVec.push_back(c4_1sub[iV][iP]);
+			gVec.push_back(c4_3sub[iV][iP]);
+			draw_graph(gVec,iV,iP,1,iBin);
+			gVec.clear();
+		}
+	}
+
+	// 2: mtd_c6
+	for(unsigned int iV=2; iV<NV; iV++)
+	{
+		for(unsigned int iP=0; iP<NP; iP++)
+		{
+			gVec.push_back(c6_1sub[iV][iP]);
+			gVec.push_back(c6_1sub[iV][iP]);
+			draw_graph(gVec,iV,iP,2,iBin);
+			gVec.clear();
+		}
+	}
+
+	// 3: mtd_nc4
+	for(unsigned int iV=2; iV<NV; iV++)
+	{
+		for(unsigned int iP=0; iP<NP; iP++)
+		{
+			gVec.push_back(nc4_1sub[iV][iP]);
+			gVec.push_back(nc4_3sub[iV][iP]);
+			draw_graph(gVec,iV,iP,3,iBin);
+			gVec.clear();
+		}
+	}
+
+	// 4: mtd_nc6
+	for(unsigned int iV=2; iV<NV; iV++)
+	{
+		for(unsigned int iP=0; iP<NP; iP++)
+		{
+			gVec.push_back(nc6_1sub[iV][iP]);
+			gVec.push_back(nc6_1sub[iV][iP]);
+			draw_graph(gVec,iV,iP,4,iBin);
+			gVec.clear();
+		}
+	}
+
+	// 5: mtd_sc
+	for(unsigned int iV=0; iV<NV; iV++)
+	{
+		for(unsigned int iP=0; iP<NP; iP++)
+		{
+			gVec.push_back(sc_1sub[iV][iP]);
+			gVec.push_back(sc_3sub[iV][iP]);
+			draw_graph(gVec,iV,iP,5,iBin);
+			gVec.clear();
+		}
+	}
+
+	// 6: mtd_nsc
+	for(unsigned int iV=0; iV<NV; iV++)
+	{
+		for(unsigned int iP=0; iP<NP; iP++)
+		{
+			gVec.push_back(nsc_1sub[iV][iP]);
+			gVec.push_back(nsc_3sub[iV][iP]);
+			draw_graph(gVec,iV,iP,6,iBin);
+			gVec.clear();
+		}
+	}
+
+	// 7: mtd_ac
+	for(unsigned int iV=0; iV<3; iV++)
+	{
+		for(unsigned int iP=0; iP<NP; iP++)
+		{
+			gVec.push_back(ac_1sub[iV][iP]);
+			gVec.push_back(ac_3sub[iV][iP]);
+			draw_graph(gVec,iV,iP,7,iBin);
+			gVec.clear();
+		}
+	}
+
+	// 8: mtd_nac
+	for(unsigned int iV=0; iV<3; iV++)
+	{
+		for(unsigned int iP=0; iP<NP; iP++)
+		{
+			gVec.push_back(nac_1sub[iV][iP]);
+			gVec.push_back(nac_3sub[iV][iP]);
+			draw_graph(gVec,iV,iP,8,iBin);
+			gVec.clear();
+		}
+	}
+
+	// 9: mtd_isGauss
+	for(unsigned int iV=2; iV<NV; iV++)
+	{
+		for(unsigned int iP=0; iP<NP; iP++)
+		{
+			gVec.push_back(isGauss_1sub[iV][iP]);
+			gVec.push_back(isGauss_1sub[iV][iP]);
+			draw_graph(gVec,iV,iP,9,iBin);
+			gVec.clear();
+		}
+	}
+
+	// 10: mtd_isPower
+	for(unsigned int iV=2; iV<NV; iV++)
+	{
+		for(unsigned int iP=0; iP<NP; iP++)
+		{
+			gVec.push_back(isPower_1sub[iV][iP]);
+			gVec.push_back(isPower_1sub[iV][iP]);
+			draw_graph(gVec,iV,iP,10,iBin);
+			gVec.clear();
+		}
+	}
 
 	fOut->Close();
 }
@@ -51,7 +183,7 @@ void Plot::initialize(unsigned int iBin)
 {
   cout<<"initialize..."<<endl;
 	
-	sprintf(name,"/phenix/plhf/mzhou/AnaCumu_PbPb502/MAIN_binCent/OUTPUT_Phase3/Phase3_bin%d.root",iBin);
+	sprintf(name,"../OUTPUT/Phase3/Phase3_bin%d.root",iBin);
 	TFile* fIn = new TFile(name,"READ");
 	for(unsigned int iV=0; iV<NV; iV++)
 	{
@@ -84,7 +216,7 @@ void Plot::finalize()
 	cout<<"finalize..."<<endl;
 }
 
-void Plot::draw_graph(vector<TGraphErrors*> vIn, int iV, int iP, int iOpt)
+void Plot::draw_graph(vector<TGraphErrors*> vIn, int iV, int iP, int iOpt, unsigned int iBin)
 {
 	int NG = vIn.size();
 	TGraphErrors* gIn[10];
@@ -108,22 +240,19 @@ void Plot::draw_graph(vector<TGraphErrors*> vIn, int iV, int iP, int iOpt)
 	leg->SetFillStyle(0);
 	leg->SetBorderSize(0);
 	leg->SetNColumns(3);
-	if(iOpt==0)
-	{
-		leg->AddEntry(gIn[0],"#font[42]{standard}","p");
-		leg->AddEntry(gIn[1],"#font[42]{3-subevent}","p");
-	}
+	leg->AddEntry(gIn[0],"#font[42]{standard}","p");
+	leg->AddEntry(gIn[1],"#font[42]{3-subevent}","p");
 
 	double xMin =  0;
-	double xMax =  0;
+	double xMax = 80;
 	double yMin =  1;
 	double yMax = -1;
-	for(int iG=0; iG<NG; iG++) getYrange(gIn[iG],yMin,yMax,iOpt);
+	for(int iG=0; iG<NG; iG++) getYrange(gIn[iG],yMin,yMax);
 	double diff = yMax-yMin;
 	yMax += 0.5*diff;
 	yMin -= 0.5*diff;
 
-	TH1D* hAxis = new TH1D("hAxis","",1,xMin,xMax);
+	TH1D* hAxis = new TH1D("hAxis","",800,xMin,xMax);
 	hAxis->Fill(1,1E9);
 	styleGraph(hAxis,0);
 
@@ -136,32 +265,79 @@ void Plot::draw_graph(vector<TGraphErrors*> vIn, int iV, int iP, int iOpt)
 	gPad->SetBottomMargin(0.1);
 	gPad->SetLeftMargin(0.125);
 	gPad->SetRightMargin(0.025);
-	if(iOpt!=8 && iOpt!=19 && iOpt!=20 && iOpt!=27) sprintf(name,"Centrality / %%");
-	else if(iOpt!=27) sprintf(name,"p_{T} / GeV");
-	else sprintf(name,"v_{%d}{4}/v_{%d}{2}",iV,iV);
-	hAxis->GetXaxis()->SetTitle(name);
+	hAxis->GetXaxis()->SetTitle("Centrality / %");
 	hAxis->GetXaxis()->SetTitleOffset(1.15);
 	hAxis->GetXaxis()->SetRangeUser(xMin,xMax);
 	if(iOpt==0) sprintf(name,"c_{%d}{2}",iV);
+	if(iOpt==1) sprintf(name,"c_{%d}{4}",iV);
+	if(iOpt==2) sprintf(name,"c_{%d}{6}",iV);
+	if(iOpt==3) sprintf(name,"#hat{c}_{%d}{4}",iV);
+	if(iOpt==4) sprintf(name,"#hat{c}_{%d}{6}",iV);
+	if(iOpt==5)
+	{
+		if(iV==0) sprintf(name,"SC(1,2)");
+		if(iV==1) sprintf(name,"SC(1,3)");
+		if(iV==2) sprintf(name,"SC(2,3)");
+		if(iV==3) sprintf(name,"SC(2,4)");
+	}
+	if(iOpt==6)
+	{
+		if(iV==0) sprintf(name,"#hat{SC}(1,2)");
+		if(iV==1) sprintf(name,"#hat{SC}(1,3)");
+		if(iV==2) sprintf(name,"#hat{SC}(2,3)");
+		if(iV==3) sprintf(name,"#hat{SC}(2,4)");
+	}
+	if(iOpt==7)
+	{
+		if(iV==0) sprintf(name,"ASC(1,1,2)");
+		if(iV==1) sprintf(name,"ASC(1,2,3)");
+		if(iV==2) sprintf(name,"ASC(2,2,4)");
+	}
+	if(iOpt==8)
+	{
+		if(iV==0) sprintf(name,"#hat{ASC}(1,1,2)");
+		if(iV==1) sprintf(name,"#hat{ASC}(1,2,3)");
+		if(iV==2) sprintf(name,"#hat{ASC}(2,2,4)");
+	}
+	if(iOpt==9) sprintf(name,"v_{%d} Gauss check",iV);
+	if(iOpt==10) sprintf(name,"v_{%d} Power check",iV);
 	hAxis->GetYaxis()->SetTitle(name);
 	hAxis->GetYaxis()->SetTitleOffset(1.6);
 	hAxis->GetYaxis()->SetRangeUser(yMin,yMax);
-	if(iOpt==7 && iV!=2) hAxis->GetYaxis()->SetRangeUser(-0.1,0.2);
-	if(iOpt==23 || iOpt==24) hAxis->GetYaxis()->SetRangeUser(-0.5,2.5);
-	if(iOpt==27) hAxis->GetYaxis()->SetRangeUser(0.6,1.4);
+	if(iOpt==9 || iOpt==10) hAxis->GetYaxis()->SetRangeUser(-0.5,2.5);
 	hAxis->Draw();
 	for(int iG=0; iG<NG; iG++) gIn[iG]->Draw("PL");
 	tex->DrawLatex(0.175,0.875,"#font[72]{ATLAS} #font[62]{Internal}");
 	tex->DrawLatex(0.175,0.82,"#font[42]{Xe+Xe #sqrt{s_{NN}}=5.44 TeV}");
-	if(iOpt== 0) sprintf(name,"#font[42]{%.1f<p_{T}^{RFP}<%.1f GeV}",minPtRef[iR],maxPtRef[iR]);
+	sprintf(name,"#font[42]{%.1f<p_{T}<%.1f GeV}",minPt[iP],maxPt[iP]);
 	tex->DrawLatex(0.175,0.76,name);
-	if(iOpt<2 || iOpt==9 || iOpt==10 || iOpt==11 || iOpt==12 || iOpt==16 || iOpt==21 || iOpt==22) lin->DrawLine(xMin,0,xMax,0);
-	if(iOpt==23 || iOpt==24) lin->DrawLine(xMin,1,xMax,1);
+	if(iOpt!=9 && iOpt!=10) lin->DrawLine(xMin,0,xMax,0);
+	else lin->DrawLine(xMin,1,xMax,1);
 	leg->Draw();
 
-	if(iOpt==0) sprintf(name,"PLOT/mtd_c2_Har%d_PtRef%d.pdf",iV,iR);
+	if(iOpt==0) sprintf(name,"../PLOT/bin%d/mtd_c2_Har%d_Pt%d.pdf",iBin,iV,iP);
+	if(iOpt==1) sprintf(name,"../PLOT/bin%d/mtd_c4_Har%d_Pt%d.pdf",iBin,iV,iP);
+	if(iOpt==2) sprintf(name,"../PLOT/bin%d/mtd_c6_Har%d_Pt%d.pdf",iBin,iV,iP);
+	if(iOpt==3) sprintf(name,"../PLOT/bin%d/mtd_nc4_Har%d_Pt%d.pdf",iBin,iV,iP);
+	if(iOpt==4) sprintf(name,"../PLOT/bin%d/mtd_nc6_Har%d_Pt%d.pdf",iBin,iV,iP);
+	if(iOpt==5) sprintf(name,"../PLOT/bin%d/mtd_sc_Har%d_Pt%d.pdf",iBin,iV,iP);
+	if(iOpt==6) sprintf(name,"../PLOT/bin%d/mtd_nsc_Har%d_Pt%d.pdf",iBin,iV,iP);
+	if(iOpt==7) sprintf(name,"../PLOT/bin%d/mtd_ac_Har%d_Pt%d.pdf",iBin,iV,iP);
+	if(iOpt==8) sprintf(name,"../PLOT/bin%d/mtd_nac_Har%d_Pt%d.pdf",iBin,iV,iP);
+	if(iOpt==9) sprintf(name,"../PLOT/bin%d/mtd_isGauss_Har%d_Pt%d.pdf",iBin,iV,iP);
+	if(iOpt==10) sprintf(name,"../PLOT/bin%d/mtd_isPower_Har%d_Pt%d.pdf",iBin,iV,iP);
 	cOut->Print(name);
-	if(iOpt==0) sprintf(name,"mtd_c2_Har%d_PtRef%d",iV,iR);
+	if(iOpt==0) sprintf(name,"mtd_c2_Har%d_Pt%d",iV,iP);
+	if(iOpt==1) sprintf(name,"mtd_c4_Har%d_Pt%d",iV,iP);
+	if(iOpt==2) sprintf(name,"mtd_c6_Har%d_Pt%d",iV,iP);
+	if(iOpt==3) sprintf(name,"mtd_nc4_Har%d_Pt%d",iV,iP);
+	if(iOpt==4) sprintf(name,"mtd_nc6_Har%d_Pt%d",iV,iP);
+	if(iOpt==5) sprintf(name,"mtd_sc_Har%d_Pt%d",iV,iP);
+	if(iOpt==6) sprintf(name,"mtd_nsc_Har%d_Pt%d",iV,iP);
+	if(iOpt==7) sprintf(name,"mtd_ac_Har%d_Pt%d",iV,iP);
+	if(iOpt==8) sprintf(name,"mtd_nac_Har%d_Pt%d",iV,iP);
+	if(iOpt==9) sprintf(name,"mtd_isGauss_Har%d_Pt%d",iV,iP);
+	if(iOpt==10) sprintf(name,"mtd_isPower_Har%d_Pt%d",iV,iP);
 	cOut->SetName(name);
 	cOut->Write();
 
@@ -200,14 +376,13 @@ void Plot::styleGraph(TH1D* hIn, int k)
 	hIn->SetLineWidth(2);
 }
 
-void Plot::getYrange(TGraph* hIn, double& yMin, double& yMax, int iOpt)
+void Plot::getYrange(TGraph* hIn, double& yMin, double& yMax)
 {
 	double x; double y;
 	for(int i=0; i<hIn->GetN(); i++)
 	{
 		hIn->GetPoint(i,x,y);
-		if(iOpt!=8 && x>50) continue;
-		if(iOpt==8 && x>10) continue;
+		if(x>50) continue;
 		if(y<yMin) yMin = y;
 		if(y>yMax) yMax = y;
 	}

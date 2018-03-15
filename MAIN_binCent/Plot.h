@@ -36,10 +36,10 @@ class Plot
 		TGraphErrors* ac_3sub[NV][NP];
 		TGraphErrors* nac_3sub[NV][NP];
 		void readHist_VP(TFile*, TGraphErrors*&, const char*, int iV, int iP);
-		void draw_graph(vector<TGraphErrors*>, int iV=-1, int iP=-1, int iOpt=-1);
+		void draw_graph(vector<TGraphErrors*>, int iV=-1, int iP=-1, int iOpt=-1, unsigned int iBin=0);
 		void styleGraph(TGraph*, int);
 		void styleGraph(TH1D*, int);
-		void getYrange(TGraph*, double&, double&, int);
+		void getYrange(TGraph*, double&, double&);
 
 	public:
 		Plot(unsigned int iBin);

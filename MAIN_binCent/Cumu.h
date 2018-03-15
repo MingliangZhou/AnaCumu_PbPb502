@@ -115,7 +115,7 @@ class Cumu
 		void cal_c_3sub(TH1D* pc2_1, TH1D* pc2_2, TH1D* pc4, TH1D* c2, TH1D* c4);
 		void cal_nc(TH1D* c2, TH1D* c4, TH1D* c6, TH1D* nc4, TH1D* nc6);
 		void cal_nsc(TH1D* c2_1, TH1D* c2_2, TH1D* sc4, TH1D* nsc4);
-		void cal_nac(TH1D* c4, TH1D* c2, TH1D* ac4, TH1D* nac4);
+		void cal_nac(TH1D* c4, TH1D* c2_1, TH1D* c2_2, TH1D* ac4, TH1D* nac4);
 		void cal_fluc(TH1D* c2, TH1D* c4, TH1D* c6, TH1D* isGauss, TH1D* isPower);
 		void rebin_cumu(TH1D* hIn, TH1D* hWght, TH1D* hOut);
 		void merge3sub(TH1D* h1, TH1D* h1w, TH1D* h2, TH1D* h2w, TH1D* h3, TH1D* h3w);
