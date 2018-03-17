@@ -105,7 +105,7 @@ void Plot::execute(unsigned int iBin)
 	}
 
 	// 5: mtd_sc
-	for(unsigned int iV=0; iV<NV; iV++)
+	for(unsigned int iV=0; iV<4; iV++)
 	{
 		for(unsigned int iP=0; iP<NP; iP++)
 		{
@@ -117,7 +117,7 @@ void Plot::execute(unsigned int iBin)
 	}
 
 	// 6: mtd_nsc
-	for(unsigned int iV=0; iV<NV; iV++)
+	for(unsigned int iV=0; iV<4; iV++)
 	{
 		for(unsigned int iP=0; iP<NP; iP++)
 		{
@@ -252,8 +252,8 @@ void Plot::draw_graph(vector<TGraphErrors*> vIn, int iV, int iP, int iOpt, unsig
 	yMax += 0.5*diff;
 	yMin -= 0.5*diff;
 
-	TH1D* hAxis = new TH1D("hAxis","",800,xMin,xMax);
-	hAxis->Fill(1,1E9);
+	TH1D* hAxis = new TH1D("hAxis","",1000,xMin,xMax);
+	for(int i=0; i<1000; i++) hAxis->SetBinContent(i+1,1E9);
 	styleGraph(hAxis,0);
 
 	TCanvas* cOut = new TCanvas("cOut","",400,400);
@@ -308,7 +308,7 @@ void Plot::draw_graph(vector<TGraphErrors*> vIn, int iV, int iP, int iOpt, unsig
 	hAxis->Draw();
 	for(int iG=0; iG<NG; iG++) gIn[iG]->Draw("PL");
 	tex->DrawLatex(0.175,0.875,"#font[72]{ATLAS} #font[62]{Internal}");
-	tex->DrawLatex(0.175,0.82,"#font[42]{Xe+Xe #sqrt{s_{NN}}=5.44 TeV}");
+	tex->DrawLatex(0.175,0.82,"#font[42]{Pb+Pb #sqrt{s_{NN}}=5.02 TeV}");
 	sprintf(name,"#font[42]{%.1f<p_{T}<%.1f GeV}",minPt[iP],maxPt[iP]);
 	tex->DrawLatex(0.175,0.76,name);
 	if(iOpt!=9 && iOpt!=10) lin->DrawLine(xMin,0,xMax,0);
