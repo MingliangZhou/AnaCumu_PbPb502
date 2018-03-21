@@ -35,7 +35,7 @@ const double cutEtaGap = 0.; // eta gap cut for subevents
 const double cutZvtx = 100; // zVtx position cut
 const double cutQual = 1; // track quality cut
 
-const unsigned int nBin = 800; // number of bins for cumulant calculation
+const unsigned int nBin = 400; // number of bins for cumulant calculation
 const double minBin = 0; // minimum centrality
 const double maxBin = 80; // maximum centrality
 const unsigned int nRebin[5] = {400, 80, 40, 16, 8}; // number of bins for final results

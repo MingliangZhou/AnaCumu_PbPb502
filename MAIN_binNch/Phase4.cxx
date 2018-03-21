@@ -90,7 +90,7 @@ void Phase4::initialize(unsigned int iBin)
 		}
 	}
 
-	sprintf(name,"/phenix/plhf/mzhou/AnaCumu_PbPb/SYS/SUM/hist_sys.root");
+	sprintf(name,"/phenix/plhf/mzhou/AnaCumu_PbPb502/SYS/CombSys/OUTPUT/Sys_bin0.root");
 	TFile* fSys = new TFile(name,"READ");
 	for(unsigned int iV=0; iV<NV; iV++)
 	{
@@ -98,49 +98,49 @@ void Phase4::initialize(unsigned int iBin)
 		{
 			int iPsel = 0;
 			if(iP<2) iPsel = 0;
-			else iPsel = 2;
-			readHist_VP(fSys,sysUp_c2_1sub[iV][iP],"sysUpF_c2_3sub","sysUp_c2_1sub",iV,iPsel);
-			readHist_VP(fSys,sysUp_c4_1sub[iV][iP],"sysUpF_c4_1sub","sysUp_c4_1sub",iV,iPsel);
-			readHist_VP(fSys,sysUp_c6_1sub[iV][iP],"sysUpF_c6_1sub","sysUp_c6_1sub",iV,iPsel);
-			readHist_VP(fSys,sysUp_nc4_1sub[iV][iP],"sysUpF_r4_1sub","sysUp_nc4_1sub",iV,iPsel);
-			readHist_VP(fSys,sysUp_nc6_1sub[iV][iP],"sysUpF_r6_1sub","sysUp_nc6_1sub",iV,iPsel);
-			readHist_VP(fSys,sysUp_sc_1sub[iV][iP],"sysUpF_c4_1sub","sysUp_sc_1sub",2,iPsel);
-			readHist_VP(fSys,sysUp_nsc_1sub[iV][iP],"sysUpF_c4_1sub","sysUp_nsc_1sub",2,iPsel);
-			readHist_VP(fSys,sysUp_ac_1sub[iV][iP],"sysUpF_c4_1sub","sysUp_ac_1sub",2,iPsel);
-			readHist_VP(fSys,sysUp_nac_1sub[iV][iP],"sysUpF_c4_1sub","sysUp_nac_1sub",2,iPsel);
-			readHist_VP(fSys,sysUp_isGauss_1sub[iV][iP],"sysUpF_isGauss","sysUp_isGauss_1sub",iV,iPsel);
-			readHist_VP(fSys,sysUp_isPower_1sub[iV][iP],"sysUpF_isPower","sysUp_isPower_1sub",iV,iPsel);
-			readHist_VP(fSys,sysUp_c2_3sub[iV][iP],"sysUpF_c2_3sub","sysUp_c2_3sub",iV,iPsel);
-			readHist_VP(fSys,sysUp_c4_3sub[iV][iP],"sysUpF_c4_3sub","sysUp_c4_3sub",iV,iPsel);
-			readHist_VP(fSys,sysUp_nc4_3sub[iV][iP],"sysUpF_r4_3sub","sysUp_nc4_3sub",iV,iPsel);
-			readHist_VP(fSys,sysUp_sc_3sub[iV][iP],"sysUpF_c4_3sub","sysUp_sc_3sub",2,iPsel);
-			readHist_VP(fSys,sysUp_nsc_3sub[iV][iP],"sysUpF_c4_3sub","sysUp_nsc_3sub",2,iPsel);
-			readHist_VP(fSys,sysUp_ac_3sub[iV][iP],"sysUpF_c4_3sub","sysUp_ac_3sub",2,iPsel);
-			readHist_VP(fSys,sysUp_nac_3sub[iV][iP],"sysUpF_c4_3sub","sysUp_nac_3sub",2,iPsel);
+			else iPsel = 1;
+			readHist_VP(fSys,sysUp_c2_1sub[iV][iP],"sysUp_c2_1sub","sysUp_c2_1sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_c4_1sub[iV][iP],"sysUp_c4_1sub","sysUp_c4_1sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_c6_1sub[iV][iP],"sysUp_c6_1sub","sysUp_c6_1sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_nc4_1sub[iV][iP],"sysUp_nc4_1sub","sysUp_nc4_1sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_nc6_1sub[iV][iP],"sysUp_nc6_1sub","sysUp_nc6_1sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_sc_1sub[iV][iP],"sysUp_sc_1sub","sysUp_sc_1sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_nsc_1sub[iV][iP],"sysUp_nsc_1sub","sysUp_nsc_1sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_ac_1sub[iV][iP],"sysUp_ac_1sub","sysUp_ac_1sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_nac_1sub[iV][iP],"sysUp_nac_1sub","sysUp_nac_1sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_isGauss_1sub[iV][iP],"sysUp_isGauss_1sub","sysUp_isGauss_1sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_isPower_1sub[iV][iP],"sysUp_isPower_1sub","sysUp_isPower_1sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_c2_3sub[iV][iP],"sysUp_c2_3sub","sysUp_c2_3sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_c4_3sub[iV][iP],"sysUp_c4_3sub","sysUp_c4_3sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_nc4_3sub[iV][iP],"sysUp_nc4_3sub","sysUp_nc4_3sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_sc_3sub[iV][iP],"sysUp_sc_3sub","sysUp_sc_3sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_nsc_3sub[iV][iP],"sysUp_nsc_3sub","sysUp_nsc_3sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_ac_3sub[iV][iP],"sysUp_ac_3sub","sysUp_ac_3sub",iV,iPsel);
+			readHist_VP(fSys,sysUp_nac_3sub[iV][iP],"sysUp_nac_3sub","sysUp_nac_3sub",iV,iPsel);
 			
-			readHist_VP(fSys,sysLw_c2_1sub[iV][iP],"sysLwF_c2_3sub","sysLw_c2_1sub",iV,iPsel);
-			readHist_VP(fSys,sysLw_c4_1sub[iV][iP],"sysLwF_c4_1sub","sysLw_c4_1sub",iV,iPsel);
-			readHist_VP(fSys,sysLw_c6_1sub[iV][iP],"sysLwF_c6_1sub","sysLw_c6_1sub",iV,iPsel);
-			readHist_VP(fSys,sysLw_nc4_1sub[iV][iP],"sysLwF_r4_1sub","sysLw_nc4_1sub",iV,iPsel);
-			readHist_VP(fSys,sysLw_nc6_1sub[iV][iP],"sysLwF_r6_1sub","sysLw_nc6_1sub",iV,iPsel);
-			readHist_VP(fSys,sysLw_sc_1sub[iV][iP],"sysLwF_c4_1sub","sysLw_sc_1sub",2,iPsel);
-			readHist_VP(fSys,sysLw_nsc_1sub[iV][iP],"sysLwF_c4_1sub","sysLw_nsc_1sub",2,iPsel);
-			readHist_VP(fSys,sysLw_ac_1sub[iV][iP],"sysLwF_c4_1sub","sysLw_ac_1sub",2,iPsel);
-			readHist_VP(fSys,sysLw_nac_1sub[iV][iP],"sysLwF_c4_1sub","sysLw_nac_1sub",2,iPsel);
-			readHist_VP(fSys,sysLw_isGauss_1sub[iV][iP],"sysLwF_isGauss","sysLw_isGauss_1sub",iV,iPsel);
-			readHist_VP(fSys,sysLw_isPower_1sub[iV][iP],"sysLwF_isPower","sysLw_isPower_1sub",iV,iPsel);
-			readHist_VP(fSys,sysLw_c2_3sub[iV][iP],"sysLwF_c2_3sub","sysLw_c2_3sub",iV,iPsel);
-			readHist_VP(fSys,sysLw_c4_3sub[iV][iP],"sysLwF_c4_3sub","sysLw_c4_3sub",iV,iPsel);
-			readHist_VP(fSys,sysLw_nc4_3sub[iV][iP],"sysLwF_r4_3sub","sysLw_nc4_3sub",iV,iPsel);
-			readHist_VP(fSys,sysLw_sc_3sub[iV][iP],"sysLwF_c4_3sub","sysLw_sc_3sub",2,iPsel);
-			readHist_VP(fSys,sysLw_nsc_3sub[iV][iP],"sysLwF_c4_3sub","sysLw_nsc_3sub",2,iPsel);
-			readHist_VP(fSys,sysLw_ac_3sub[iV][iP],"sysLwF_c4_3sub","sysLw_ac_3sub",2,iPsel);
-			readHist_VP(fSys,sysLw_nac_3sub[iV][iP],"sysLwF_c4_3sub","sysLw_nac_3sub",2,iPsel);
+			readHist_VP(fSys,sysLw_c2_1sub[iV][iP],"sysLw_c2_1sub","sysLw_c2_1sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_c4_1sub[iV][iP],"sysLw_c4_1sub","sysLw_c4_1sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_c6_1sub[iV][iP],"sysLw_c6_1sub","sysLw_c6_1sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_nc4_1sub[iV][iP],"sysLw_nc4_1sub","sysLw_nc4_1sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_nc6_1sub[iV][iP],"sysLw_nc6_1sub","sysLw_nc6_1sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_sc_1sub[iV][iP],"sysLw_sc_1sub","sysLw_sc_1sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_nsc_1sub[iV][iP],"sysLw_nsc_1sub","sysLw_nsc_1sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_ac_1sub[iV][iP],"sysLw_ac_1sub","sysLw_ac_1sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_nac_1sub[iV][iP],"sysLw_nac_1sub","sysLw_nac_1sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_isGauss_1sub[iV][iP],"sysLw_isGauss_1sub","sysLw_isGauss_1sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_isPower_1sub[iV][iP],"sysLw_isPower_1sub","sysLw_isPower_1sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_c2_3sub[iV][iP],"sysLw_c2_3sub","sysLw_c2_3sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_c4_3sub[iV][iP],"sysLw_c4_3sub","sysLw_c4_3sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_nc4_3sub[iV][iP],"sysLw_nc4_3sub","sysLw_nc4_3sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_sc_3sub[iV][iP],"sysLw_sc_3sub","sysLw_sc_3sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_nsc_3sub[iV][iP],"sysLw_nsc_3sub","sysLw_nsc_3sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_ac_3sub[iV][iP],"sysLw_ac_3sub","sysLw_ac_3sub",iV,iPsel);
+			readHist_VP(fSys,sysLw_nac_3sub[iV][iP],"sysLw_nac_3sub","sysLw_nac_3sub",iV,iPsel);
 		}
 	}
 
 	TFile* fCvt = new TFile("../../MAIN_binCent/INPUT/hist_cvt.root","READ");
-	gCvt = (TGraphErrors*)fCvt->Get("gCvt_NchRec_FCal");
+	gCvt = (TGraphErrors*)fCvt->Get("gCvt_NchRec_Cent");
 }
 
 void Phase4::finalize(unsigned int iBin)
@@ -214,7 +214,7 @@ void Phase4::combine(TGraphErrors* gSts, TGraphErrors* gSysUp, TGraphErrors* gSy
 		gSts->GetPoint(iB,x[iB],y[iB]);
 		xElw[iB] = 0;
 		xEup[iB] = 0;
-		double xCvt = gCvt->Eval(x[iB]); // Nch -> Et FIX
+		double xCvt = gCvt->Eval(x[iB]);
 		if(xCvt<xLw) xCvt = xLw;
 		if(xCvt>xUp) xCvt = xUp;
 		yElw[iB] = fabs(y[iB]*gSysLw->Eval(xCvt));
