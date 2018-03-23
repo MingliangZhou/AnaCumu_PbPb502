@@ -1,8 +1,17 @@
-MAIN_binCent: main codes for centrality binning
-MAIN_binFCal: main codes for FCal Et binning
-MAIN_binNch: main codes for NchRec binning
+MAIN_binCent/: main codes for centrality binning
+MAIN_binFCal/: main codes for FCal Et binning
+MAIN_binNch/: main codes for NchRec binning
 
-SYS: systematics checks for centrality binning
+SYS/: systematics checks for centrality binning
+	CombSys/: code to combine and smooth all sources
+	default/: default results with 80 centrality bins
+	flat/: without flattening procedure
+	mcRecon/: HIJING MC with truth particles
+	mcTruth/: HIJING MC with recon particles
+	pileup/: with different pileup rejection procedures
+	trkEffLw/: with lower tracking efficiency at a function of pT
+	trkEffUp/: with higher tracking efficiency at a function of pT
+	trkSel/: with tighter track selection cut
 
 The workflow is as flows
 	* Rule.h: all the rules for the configuration
@@ -21,3 +30,4 @@ RUN/run_Phase2.sh: compule and run Phase2 with different bin widths
 RUN/run_Phase3.sh: compule and run Phase3 with different bin widths
 RUN/run_Phase4.sh: compule and run Phase4 with different bin widths
 RUN/SUBMIT/submit_Phase1.sh: submit Phase1 production to condor
+
