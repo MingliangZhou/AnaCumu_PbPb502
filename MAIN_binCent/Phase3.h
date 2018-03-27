@@ -30,6 +30,7 @@ class Phase3
 		TH1D* rbn_nac_3sub[nSample+1][NV][NP];
 		
 		// output
+		TH1D* xMean_1sub[NP];
 		TGraphErrors* c2_1sub[NV][NP];
 		TGraphErrors* c4_1sub[NV][NP];
 		TGraphErrors* c6_1sub[NV][NP];
@@ -41,6 +42,7 @@ class Phase3
 		TGraphErrors* nac_1sub[NV][NP];
 		TGraphErrors* isGauss_1sub[NV][NP];
 		TGraphErrors* isPower_1sub[NV][NP];
+		TH1D* xMean_3sub[NP];
 		TGraphErrors* c2_3sub[NV][NP];
 		TGraphErrors* c4_3sub[NV][NP];
 		TGraphErrors* nc4_3sub[NV][NP];
@@ -49,7 +51,7 @@ class Phase3
 		TGraphErrors* ac_3sub[NV][NP];
 		TGraphErrors* nac_3sub[NV][NP];
 
-		void cal_sts(vector<TH1D*>, TGraphErrors*&, const char*, int iV, int iP);
+		void cal_sts(vector<TH1D*>, TH1D*, TGraphErrors*&, const char*, int iV, int iP);
 		void cleanPoint(TGraphErrors*);
 		void readHist_VP(TFile*, TH1D*&, const char*, int iV, int iP);
 

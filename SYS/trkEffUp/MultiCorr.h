@@ -17,7 +17,7 @@ class MultiCorr
 		double cal_w6pc_1sub(Event* evt, int iP); // weight for 6-particle correlation in standard
 		double cal_4psc_1sub(Event* evt, int iV, int iP); // 4-particle symmetric correlation 1+2-1-2, 1+3-1-3, 2+3-2-3, 2+4-2,4
 		double cal_3pac_1sub(Event* evt, int iV, int iP); // 3-particle asymmetric correlation 1+1-2, 1+2-3, 2+2-4
-		double cal_w3pc_1sub(Event* evt, int iV); // weight for 3-particle asymmetric correlation
+		double cal_w3pc_1sub(Event* evt, int iP); // weight for 3-particle asymmetric correlation
 		
 		double cal_2pc_1sub_BG(Event* evt1, Event* evt2, int iV, int iP); // background
 		double cal_w2pc_1sub_BG(Event* evt1, Event* evt2, int iP); // weight for background
