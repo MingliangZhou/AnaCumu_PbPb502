@@ -215,13 +215,13 @@ void Cumu::run_c_1sub()
 
 			cal_c_1sub(pc2_1sub_mean[iV][iP], pc4_1sub_mean[iV][iP], pc6_1sub_mean[iV][iP], ori_c2_1sub[iV][iP], ori_c4_1sub[iV][iP], ori_c6_1sub[iV][iP]);
 
-			rebin_cumu(ori_c2_1sub[iV][iP],cnt_1sub[iV],raw_c2_1sub[iV][iP]);
-			rebin_cumu(ori_c4_1sub[iV][iP],cnt_1sub[iV],raw_c4_1sub[iV][iP]);
-			rebin_cumu(ori_c6_1sub[iV][iP],cnt_1sub[iV],raw_c6_1sub[iV][iP]);
+			rebin_cumu(ori_c2_1sub[iV][iP],cnt_1sub[iP],raw_c2_1sub[iV][iP]);
+			rebin_cumu(ori_c4_1sub[iV][iP],cnt_1sub[iP],raw_c4_1sub[iV][iP]);
+			rebin_cumu(ori_c6_1sub[iV][iP],cnt_1sub[iP],raw_c6_1sub[iV][iP]);
 
-			rebin_cumu(raw_c2_1sub[iV][iP],raw_cnt_1sub[iV],rbn_c2_1sub[iV][iP]);
-			rebin_cumu(raw_c4_1sub[iV][iP],raw_cnt_1sub[iV],rbn_c4_1sub[iV][iP]);
-			rebin_cumu(raw_c6_1sub[iV][iP],raw_cnt_1sub[iV],rbn_c6_1sub[iV][iP]);
+			rebin_cumu(raw_c2_1sub[iV][iP],raw_cnt_1sub[iP],rbn_c2_1sub[iV][iP]);
+			rebin_cumu(raw_c4_1sub[iV][iP],raw_cnt_1sub[iP],rbn_c4_1sub[iV][iP]);
+			rebin_cumu(raw_c6_1sub[iV][iP],raw_cnt_1sub[iP],rbn_c6_1sub[iV][iP]);
 		}
 	}
 }
@@ -239,9 +239,9 @@ void Cumu::run_sc_1sub()
 			if(iV==2) cal_sc(pc2_1sub_mean[2][iP], pc2_1sub_mean[3][iP], psc4_1sub_mean[iV][iP], ori_sc_1sub[iV][iP]);
 			if(iV==3) cal_sc(pc2_1sub_mean[2][iP], pc2_1sub_mean[4][iP], psc4_1sub_mean[iV][iP], ori_sc_1sub[iV][iP]);
 
-			rebin_cumu(ori_sc_1sub[iV][iP],cnt_1sub[iV],raw_sc_1sub[iV][iP]);
+			rebin_cumu(ori_sc_1sub[iV][iP],cnt_1sub[iP],raw_sc_1sub[iV][iP]);
 			
-			rebin_cumu(raw_sc_1sub[iV][iP],raw_cnt_1sub[iV],rbn_sc_1sub[iV][iP]);
+			rebin_cumu(raw_sc_1sub[iV][iP],raw_cnt_1sub[iP],rbn_sc_1sub[iV][iP]);
 		}
 	}
 }
@@ -254,9 +254,9 @@ void Cumu::run_ac_1sub()
 		{
 			pac3_1sub_mean[iV][iP]->Divide(pac3_1sub_wght[iV][iP]);
 			
-			rebin_cumu(pac3_1sub_mean[iV][iP],cnt_1sub[iV],raw_ac_1sub[iV][iP]);
+			rebin_cumu(pac3_1sub_mean[iV][iP],cnt_1sub[iP],raw_ac_1sub[iV][iP]);
 			
-			rebin_cumu(raw_ac_1sub[iV][iP],raw_cnt_1sub[iV],rbn_ac_1sub[iV][iP]);
+			rebin_cumu(raw_ac_1sub[iV][iP],raw_cnt_1sub[iP],rbn_ac_1sub[iV][iP]);
 		}
 	}
 }
@@ -275,13 +275,13 @@ void Cumu::run_c_3sub()
 
 				cal_c_3sub(pc2_1_3sub_mean[iA][iV][iP], pc2_2_3sub_mean[iA][iV][iP], pc4_3sub_mean[iA][iV][iP], ori_c2_3sub[iA][iV][iP], ori_c4_3sub[iA][iV][iP]);
 
-				rebin_cumu(ori_c2_3sub[iA][iV][iP],cnt_3sub[iA][iV],raw_c2_3sub[iA][iV][iP]);
-				rebin_cumu(ori_c4_3sub[iA][iV][iP],cnt_3sub[iA][iV],raw_c4_3sub[iA][iV][iP]);
+				rebin_cumu(ori_c2_3sub[iA][iV][iP],cnt_3sub[iA][iP],raw_c2_3sub[iA][iV][iP]);
+				rebin_cumu(ori_c4_3sub[iA][iV][iP],cnt_3sub[iA][iP],raw_c4_3sub[iA][iV][iP]);
 
-				rebin_cumu(raw_c2_3sub[iA][iV][iP],raw_cnt_3sub[iA][iV],rbn_c2_3sub[iA][iV][iP]);
-				rebin_cumu(raw_c4_3sub[iA][iV][iP],raw_cnt_3sub[iA][iV],rbn_c4_3sub[iA][iV][iP]);
+				rebin_cumu(raw_c2_3sub[iA][iV][iP],raw_cnt_3sub[iA][iP],rbn_c2_3sub[iA][iV][iP]);
+				rebin_cumu(raw_c4_3sub[iA][iV][iP],raw_cnt_3sub[iA][iP],rbn_c4_3sub[iA][iV][iP]);
 				
-				rebin_cumu(pc4_3sub_mean[iA][iV][iP],cnt_3sub[iA][iV],raw_p4_3sub[iA][iV][iP]);
+				rebin_cumu(pc4_3sub_mean[iA][iV][iP],cnt_3sub[iA][iP],raw_p4_3sub[iA][iV][iP]);
 			}
 		}
 	}
@@ -289,8 +289,8 @@ void Cumu::run_c_3sub()
 	{
 		for(unsigned int iP=0; iP<NP; iP++)
 		{
-			merge3sub(rbn_c4_3sub[0][iV][iP],rbn_cnt_3sub[0][iV],rbn_c4_3sub[1][iV][iP],rbn_cnt_3sub[1][iV],rbn_c4_3sub[2][iV][iP],rbn_cnt_3sub[2][iV]);
-			merge3sub(raw_p4_3sub[0][iV][iP],raw_cnt_3sub[0][iV],raw_p4_3sub[1][iV][iP],raw_cnt_3sub[1][iV],raw_p4_3sub[2][iV][iP],raw_cnt_3sub[2][iV]);
+			merge3sub(rbn_c4_3sub[0][iV][iP],rbn_cnt_3sub[0][iP],rbn_c4_3sub[1][iV][iP],rbn_cnt_3sub[1][iP],rbn_c4_3sub[2][iV][iP],rbn_cnt_3sub[2][iP]);
+			merge3sub(raw_p4_3sub[0][iV][iP],raw_cnt_3sub[0][iP],raw_p4_3sub[1][iV][iP],raw_cnt_3sub[1][iP],raw_p4_3sub[2][iV][iP],raw_cnt_3sub[2][iP]);
 		}
 	}
 }
@@ -310,8 +310,8 @@ void Cumu::run_sc_3sub()
 				if(iV==2) cal_sc(pc2_1_3sub_mean[iA][2][iP],pc2_2_3sub_mean[iA][3][iP],psc4_3sub_mean[iA][iV][iP],ori_sc_3sub[iA][iV][iP]);
 				if(iV==3) cal_sc(pc2_1_3sub_mean[iA][2][iP],pc2_2_3sub_mean[iA][4][iP],psc4_3sub_mean[iA][iV][iP],ori_sc_3sub[iA][iV][iP]);
 
-				rebin_cumu(ori_sc_3sub[iA][iV][iP],cnt_3sub[iA][iV],raw_sc_3sub[iA][iV][iP]);
-				rebin_cumu(raw_sc_3sub[iA][iV][iP],raw_cnt_3sub[iA][iV],rbn_sc_3sub[iA][iV][iP]);
+				rebin_cumu(ori_sc_3sub[iA][iV][iP],cnt_3sub[iA][iP],raw_sc_3sub[iA][iV][iP]);
+				rebin_cumu(raw_sc_3sub[iA][iV][iP],raw_cnt_3sub[iA][iP],rbn_sc_3sub[iA][iV][iP]);
 			}
 		}
 	}
@@ -319,7 +319,7 @@ void Cumu::run_sc_3sub()
 	{
 		for(unsigned int iP=0; iP<NP; iP++)
 		{
-			merge3sub(rbn_sc_3sub[0][iV][iP],rbn_cnt_3sub[0][iV],rbn_sc_3sub[1][iV][iP],rbn_cnt_3sub[1][iV],rbn_sc_3sub[2][iV][iP],rbn_cnt_3sub[2][iV]);
+			merge3sub(rbn_sc_3sub[0][iV][iP],rbn_cnt_3sub[0][iP],rbn_sc_3sub[1][iV][iP],rbn_cnt_3sub[1][iP],rbn_sc_3sub[2][iV][iP],rbn_cnt_3sub[2][iP]);
 		}
 	}
 }
@@ -334,8 +334,8 @@ void Cumu::run_ac_3sub()
 			{
 				pac3_3sub_mean[iA][iV][iP]->Divide(pac3_3sub_wght[iA][iV][iP]);
 
-				rebin_cumu(pac3_3sub_mean[iA][iV][iP],cnt_3sub[iA][iV],raw_ac_3sub[iA][iV][iP]);
-				rebin_cumu(raw_ac_3sub[iA][iV][iP],raw_cnt_3sub[iA][iV],rbn_ac_3sub[iA][iV][iP]);
+				rebin_cumu(pac3_3sub_mean[iA][iV][iP],cnt_3sub[iA][iP],raw_ac_3sub[iA][iV][iP]);
+				rebin_cumu(raw_ac_3sub[iA][iV][iP],raw_cnt_3sub[iA][iP],rbn_ac_3sub[iA][iV][iP]);
 			}
 		}
 	}
@@ -343,7 +343,7 @@ void Cumu::run_ac_3sub()
 	{
 		for(unsigned int iP=0; iP<NP; iP++)
 		{
-			merge3sub(rbn_ac_3sub[0][iV][iP],rbn_cnt_3sub[0][iV],rbn_ac_3sub[1][iV][iP],rbn_cnt_3sub[1][iV],rbn_ac_3sub[2][iV][iP],rbn_cnt_3sub[2][iV]);
+			merge3sub(rbn_ac_3sub[0][iV][iP],rbn_cnt_3sub[0][iP],rbn_ac_3sub[1][iV][iP],rbn_cnt_3sub[1][iP],rbn_ac_3sub[2][iV][iP],rbn_cnt_3sub[2][iP]);
 		}
 	}
 }
@@ -356,8 +356,8 @@ void Cumu::run_nc_1sub()
 		{
 			cal_nc(raw_c2_3sub[1][iV][iP],raw_c4_1sub[iV][iP],raw_c6_1sub[iV][iP],raw_nc4_1sub[iV][iP],raw_nc6_1sub[iV][iP]);
 
-			rebin_cumu(raw_nc4_1sub[iV][iP],raw_cnt_1sub[iV],rbn_nc4_1sub[iV][iP]);
-			rebin_cumu(raw_nc6_1sub[iV][iP],raw_cnt_1sub[iV],rbn_nc6_1sub[iV][iP]);
+			rebin_cumu(raw_nc4_1sub[iV][iP],raw_cnt_1sub[iP],rbn_nc4_1sub[iV][iP]);
+			rebin_cumu(raw_nc6_1sub[iV][iP],raw_cnt_1sub[iP],rbn_nc6_1sub[iV][iP]);
 		}
 	}
 }
@@ -373,7 +373,7 @@ void Cumu::run_nsc_1sub()
 			if(iV==2) cal_nsc(raw_c2_3sub[1][2][iP], raw_c2_3sub[1][3][iP], raw_sc_1sub[iV][iP], raw_nsc_1sub[iV][iP]);
 			if(iV==3) cal_nsc(raw_c2_3sub[1][2][iP], raw_c2_3sub[1][4][iP], raw_sc_1sub[iV][iP], raw_nsc_1sub[iV][iP]);
 
-			rebin_cumu(raw_nsc_1sub[iV][iP],raw_cnt_1sub[iV],rbn_nsc_1sub[iV][iP]);
+			rebin_cumu(raw_nsc_1sub[iV][iP],raw_cnt_1sub[iP],rbn_nsc_1sub[iV][iP]);
 		}
 	}
 }
@@ -388,7 +388,7 @@ void Cumu::run_nac_1sub()
 			if(iV==1) cal_nac(raw_c4_3sub[0][1][iP],raw_c2_3sub[1][1][iP],raw_c2_3sub[1][3][iP],raw_ac_1sub[iV][iP],raw_nac_1sub[iV][iP]);
 			if(iV==2) cal_nac(raw_c4_3sub[0][2][iP],raw_c2_3sub[1][2][iP],raw_c2_3sub[1][4][iP],raw_ac_1sub[iV][iP],raw_nac_1sub[iV][iP]);
 
-			rebin_cumu(raw_nac_1sub[iV][iP],raw_cnt_1sub[iV],rbn_nac_1sub[iV][iP]);
+			rebin_cumu(raw_nac_1sub[iV][iP],raw_cnt_1sub[iP],rbn_nac_1sub[iV][iP]);
 		}
 	}
 }
@@ -401,8 +401,8 @@ void Cumu::run_fluc_1sub()
 		{
 			cal_fluc(raw_c2_3sub[1][iV][iP],raw_c4_1sub[iV][iP],raw_c6_1sub[iV][iP],raw_isGauss_1sub[iV][iP],raw_isPower_1sub[iV][iP]);
 			
-			rebin_cumu(raw_isGauss_1sub[iV][iP],raw_cnt_1sub[iV],rbn_isGauss_1sub[iV][iP]);
-			rebin_cumu(raw_isPower_1sub[iV][iP],raw_cnt_1sub[iV],rbn_isPower_1sub[iV][iP]);
+			rebin_cumu(raw_isGauss_1sub[iV][iP],raw_cnt_1sub[iP],rbn_isGauss_1sub[iV][iP]);
+			rebin_cumu(raw_isPower_1sub[iV][iP],raw_cnt_1sub[iP],rbn_isPower_1sub[iV][iP]);
 		}
 	}
 }
@@ -417,8 +417,8 @@ void Cumu::run_nc_3sub()
 			{
 				cal_nc(raw_c2_3sub[1][iV][iP],raw_c4_3sub[iA][iV][iP],raw_c6_1sub[iV][iP],raw_nc4_3sub[iA][iV][iP],raw_nc6_3sub[iA][iV][iP]);
 
-				rebin_cumu(raw_nc4_3sub[iA][iV][iP],raw_cnt_3sub[iA][iV],rbn_nc4_3sub[iA][iV][iP]);
-				rebin_cumu(raw_nc6_3sub[iA][iV][iP],raw_cnt_3sub[iA][iV],rbn_nc6_3sub[iA][iV][iP]);
+				rebin_cumu(raw_nc4_3sub[iA][iV][iP],raw_cnt_3sub[iA][iP],rbn_nc4_3sub[iA][iV][iP]);
+				rebin_cumu(raw_nc6_3sub[iA][iV][iP],raw_cnt_3sub[iA][iP],rbn_nc6_3sub[iA][iV][iP]);
 			}
 		}
 	}
@@ -437,7 +437,7 @@ void Cumu::run_nsc_3sub()
 				if(iV==2) cal_nsc(raw_c2_3sub[1][2][iP], raw_c2_3sub[1][3][iP], raw_sc_3sub[iA][iV][iP], raw_nsc_3sub[iA][iV][iP]);
 				if(iV==3) cal_nsc(raw_c2_3sub[1][2][iP], raw_c2_3sub[1][4][iP], raw_sc_3sub[iA][iV][iP], raw_nsc_3sub[iA][iV][iP]);
 
-				rebin_cumu(raw_nsc_3sub[iA][iV][iP],raw_cnt_3sub[iA][iV],rbn_nsc_3sub[iA][iV][iP]);
+				rebin_cumu(raw_nsc_3sub[iA][iV][iP],raw_cnt_3sub[iA][iP],rbn_nsc_3sub[iA][iV][iP]);
 			}
 		}
 	}
@@ -455,7 +455,7 @@ void Cumu::run_nac_3sub()
 				if(iV==1) cal_nac(raw_c4_3sub[0][1][iP],raw_c2_3sub[1][1][iP],raw_c2_3sub[1][3][iP],raw_ac_3sub[iA][iV][iP],raw_nac_3sub[iA][iV][iP]);
 				if(iV==2) cal_nac(raw_c4_3sub[0][2][iP],raw_c2_3sub[1][2][iP],raw_c2_3sub[1][4][iP],raw_ac_3sub[iA][iV][iP],raw_nac_3sub[iA][iV][iP]);
 
-				rebin_cumu(raw_nac_3sub[iA][iV][iP],raw_cnt_3sub[iA][iV],rbn_nac_3sub[iA][iV][iP]);
+				rebin_cumu(raw_nac_3sub[iA][iV][iP],raw_cnt_3sub[iA][iP],rbn_nac_3sub[iA][iV][iP]);
 			}
 		}
 	}
