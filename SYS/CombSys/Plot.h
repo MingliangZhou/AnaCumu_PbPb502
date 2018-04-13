@@ -19,6 +19,8 @@ const int lC[8] = {kBlue+2, kRed+2, kGreen+2, kYellow+2, kMagenta+2, kCyan+2, kO
 class Plot
 {
 	private:
+		TGraphErrors* c4_1sub[2][NS][NV][NP];
+
 		TGraphErrors* ratio_c2_1sub[NS][NV][NP];
 		TGraphErrors* ratio_c4_1sub[NS][NV][NP];
 		TGraphErrors* ratio_c6_1sub[NS][NV][NP];
@@ -76,9 +78,11 @@ class Plot
 		TGraphErrors* sysLw_ac_3sub[NV][NP];
 		TGraphErrors* sysLw_nac_3sub[NV][NP];
 
+		void readHist_FSVP(TFile*, TGraphErrors*&, const char*, int iF, int iS, int iV, int iP);
 		void readHist_SVP(TFile*, TGraphErrors*&, const char*, int iS, int iV, int iP);
 		void readHist_VP(TFile*, TGraphErrors*&, const char*, int iV, int iP);
 		void draw_graph(vector<TGraphErrors*>, int iV=-1, int iP=-1, int iOpt=-1, unsigned int iBin=2);
+		void draw_sepa(TGraphErrors* g0, TGraphErrors* g1, TGraphErrors* gR, int iS, int iV, int iP, int iOpt, unsigned int iBin=2);
 		void styleGraph(TGraph*, int);
 		void styleGraph(TH1D*, int);
 		void getYrange(TGraph*, double&, double&);

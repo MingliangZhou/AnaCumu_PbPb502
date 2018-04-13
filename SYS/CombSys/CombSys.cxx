@@ -518,6 +518,38 @@ void CombSys::smooth()
 	// sys_sc_3sub_Har3_Pt1
 	smooth_ratio(ratio_sc_3sub[3][3][1],7,0.05);
 	
+	// special treatment for flattening
+	for(unsigned int iS=6; iS<7; iS++)
+	{
+		for(unsigned int iV=0; iV<NV; iV++)
+		{
+			for(unsigned int iP=0; iP<NP; iP++)
+			{
+				for(int iB=0; iB<ratio_c2_1sub[0][0][0]->GetN(); iB++)
+				{
+					reduce_ratio(ratio_c2_1sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_c4_1sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_c6_1sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_nc4_1sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_nc6_1sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_sc_1sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_nsc_1sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_ac_1sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_nac_1sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_isGauss_1sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_isPower_1sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_c2_3sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_c4_3sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_nc4_3sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_sc_3sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_nsc_3sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_ac_3sub[iS][iV][iP],iB,0.5);
+					reduce_ratio(ratio_nac_3sub[iS][iV][iP],iB,0.5);
+				}
+			}
+		}
+	}
+	
 	// speical treatment for MC closure
 	for(unsigned int iS=5; iS<6; iS++)
 	{
