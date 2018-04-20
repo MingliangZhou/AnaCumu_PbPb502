@@ -531,13 +531,13 @@ void Plot::draw_graph_4by2(vector<TGraphErrors*> vSts, vector<TGraphAsymmErrors*
 		hAxis->GetXaxis()->SetRangeUser(xMin,xMax);
 		if(iOpt==0) sprintf(name,"c_{%d}{2}",iC%4+1);
 		if(iOpt==1) sprintf(name,"c_{%d}{4}",iC%4+1);
-		if(iOpt==2) sprintf(name,"#hat{c}_{%d}{4}",iC%4+1);
+		if(iOpt==2) sprintf(name,"nc_{%d}{4}",iC%4+1);
 		if(iOpt==3)
 		{
-			if(iC%4==0) sprintf(name,"SC(2,3)");
-			if(iC%4==1) sprintf(name,"SC(2,4)");
-			if(iC%4==2) sprintf(name,"ASC(1,1,2)");
-			if(iC%4==3) sprintf(name,"ASC(2,2,4)");
+			if(iC%4==0) sprintf(name,"sc_{2,3}{4}");
+			if(iC%4==1) sprintf(name,"sc_{2,4}{4}");
+			if(iC%4==2) sprintf(name,"ac_{1,2}{3}");
+			if(iC%4==3) sprintf(name,"ac_{2,4}{3}");
 		}
 		hAxis->GetYaxis()->SetTitle(name);
 		hAxis->GetYaxis()->SetTitleOffset(4);
@@ -662,34 +662,34 @@ void Plot::draw_graph_4by3(vector<TGraphErrors*> vSts, vector<TGraphAsymmErrors*
 		hAxis->GetXaxis()->SetRangeUser(xMin,xMax);
 		if(iOpt==0) sprintf(name,"c_{%d}{2}",iV);
 		if(iOpt==1) sprintf(name,"c_{%d}{4}",iV);
-		if(iOpt==2) sprintf(name,"#hat{c}_{%d}{4}",iV);
+		if(iOpt==2) sprintf(name,"nc_{%d}{4}",iV);
 		if(iOpt==3) sprintf(name,"c_{%d}{6}",iV);
-		if(iOpt==4) sprintf(name,"#hat{c}_{%d}{6}",iV);
+		if(iOpt==4) sprintf(name,"nc_{%d}{6}",iV);
 		if(iOpt==5)
 		{
-			if(iV==0) sprintf(name,"SC(1,2)");
-			if(iV==1) sprintf(name,"SC(1,3)");
-			if(iV==2) sprintf(name,"SC(2,3)");
-			if(iV==3) sprintf(name,"SC(2,4)");
+			if(iV==0) sprintf(name,"sc_{1,2}{4}");
+			if(iV==1) sprintf(name,"sc_{1,3}{4}");
+			if(iV==2) sprintf(name,"sc_{2,3}{4}");
+			if(iV==3) sprintf(name,"sc_{2,4}{4}");
 		}
 		if(iOpt==6)
 		{
-			if(iV==0) sprintf(name,"#hat{SC}(1,2)");
-			if(iV==1) sprintf(name,"#hat{SC}(1,3)");
-			if(iV==2) sprintf(name,"#hat{SC}(2,3)");
-			if(iV==3) sprintf(name,"#hat{SC}(2,4)");
+			if(iV==0) sprintf(name,"nsc_{1,2}{4}");
+			if(iV==1) sprintf(name,"nsc_{1,3}{4}");
+			if(iV==2) sprintf(name,"nsc_{2,3}{4}");
+			if(iV==3) sprintf(name,"nsc_{2,4}{4}");
 		}
 		if(iOpt==7)
 		{
-			if(iV==0) sprintf(name,"ASC(1,1,2)");
-			if(iV==1) sprintf(name,"ASC(1,2,3)");
-			if(iV==2) sprintf(name,"ASC(2,2,4)");
+			if(iV==0) sprintf(name,"ac_{1,2}{3}");
+			if(iV==1) sprintf(name,"ac_{1,3}{3}");
+			if(iV==2) sprintf(name,"ac_{2,4}{3}");
 		}
 		if(iOpt==8)
 		{
-			if(iV==0) sprintf(name,"#hat{ASC}(1,1,2)");
-			if(iV==1) sprintf(name,"#hat{ASC}(1,2,3)");
-			if(iV==2) sprintf(name,"#hat{ASC}(2,2,4)");
+			if(iV==0) sprintf(name,"nac_{1,2}{3}");
+			if(iV==1) sprintf(name,"nac_{1,3}{3}");
+			if(iV==2) sprintf(name,"nac_{2,4}{3}");
 		}
 		if(iOpt==9) sprintf(name,"v_{%d} Gaussian?",iV);
 		if(iOpt==10) sprintf(name,"v_{%d} Power-law?",iV);

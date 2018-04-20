@@ -20,6 +20,8 @@ class Plot
 {
 	private:
 		TGraphErrors* c4_1sub[2][NS][NV][NP];
+		TGraphErrors* sc_1sub[2][NS][NV][NP];
+		TGraphErrors* ac_1sub[2][NS][NV][NP];
 
 		TGraphErrors* ratio_c2_1sub[NS][NV][NP];
 		TGraphErrors* ratio_c4_1sub[NS][NV][NP];

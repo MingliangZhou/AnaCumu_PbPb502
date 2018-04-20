@@ -29,7 +29,7 @@ void Plot::execute(unsigned int iBin)
 	// 0: c4_1sub
 	for(unsigned int iS=1; iS<NS; iS++)
 	{
-		for(unsigned int iV=2; iV<4; iV++)
+		for(unsigned int iV=1; iV<4; iV++)
 		{
 			for(unsigned int iP=0; iP<NP; iP++)
 			{
@@ -37,6 +37,32 @@ void Plot::execute(unsigned int iBin)
 			}
 		}
 	}
+	
+	// 1: sc_1sub
+	for(unsigned int iS=5; iS<6; iS++)
+	{
+		for(unsigned int iV=2; iV<4; iV++)
+		{
+			for(unsigned int iP=0; iP<1; iP++)
+			{
+				draw_sepa(sc_1sub[1][iS][iV][iP],sc_1sub[0][iS][iV][iP],ratio_sc_1sub[iS][iV][iP],iS,iV,iP,1,iBin);
+			}
+		}
+	}
+	
+	// 2: ac_1sub
+	for(unsigned int iS=5; iS<6; iS++)
+	{
+		for(unsigned int iV=2; iV<3; iV++)
+		{
+			for(unsigned int iP=0; iP<1; iP++)
+			{
+				draw_sepa(ac_1sub[1][iS][iV][iP],ac_1sub[0][iS][iV][iP],ratio_ac_1sub[iS][iV][iP],iS,iV,iP,2,iBin);
+			}
+		}
+	}
+
+	//-----------------
 
 	vector<TGraphErrors*> gVec;
 	
@@ -276,6 +302,8 @@ void Plot::initialize(unsigned int iBin)
 				for(unsigned int iP=0; iP<NP; iP++)
 				{
 					readHist_FSVP(fIn,c4_1sub[iF][iS][iV][iP],"c4_1sub",iF,iS,iV,iP);
+					readHist_FSVP(fIn,sc_1sub[iF][iS][iV][iP],"sc_3sub",iF,iS,iV,iP);
+					readHist_FSVP(fIn,ac_1sub[iF][iS][iV][iP],"ac_3sub",iF,iS,iV,iP);
 				}
 			}
 		}
@@ -637,6 +665,15 @@ void Plot::draw_sepa(TGraphErrors* g0, TGraphErrors* g1, TGraphErrors* gR, int i
 	hAxis->GetXaxis()->SetTitleOffset(5);
 	hAxis->GetXaxis()->SetRangeUser(xMin,xMax);
 	if(iOpt==0) sprintf(name,"c_{%d}{4}",iV);
+	if(iOpt==1)
+	{
+		if(iV==2) sprintf(name,"sc_{2,3}{4}");
+		if(iV==3) sprintf(name,"sc_{2,4}{4}");
+	}
+	if(iOpt==2)
+	{
+		if(iV==2) sprintf(name,"ac_{2,4}{3}");
+	}
 	hAxis->GetYaxis()->SetTitle(name);
 	hAxis->GetYaxis()->SetTitleOffset(3.3);
 	hAxis->GetYaxis()->SetRangeUser(yMin,yMax);
@@ -671,8 +708,12 @@ void Plot::draw_sepa(TGraphErrors* g0, TGraphErrors* g1, TGraphErrors* gR, int i
 	lin->DrawLine(xMin,0,xMax,0);
 
 	if(iOpt==0) sprintf(name,"../PLOT/bin%d/sys%d_c4_1sub_Har%d_Pt%d.pdf",iBin,iS,iV,iP);
+	if(iOpt==1) sprintf(name,"../PLOT/bin%d/sys%d_sc_1sub_Har%d_Pt%d.pdf",iBin,iS,iV,iP);
+	if(iOpt==2) sprintf(name,"../PLOT/bin%d/sys%d_ac_1sub_Har%d_Pt%d.pdf",iBin,iS,iV,iP);
 	cOut->Print(name);
 	if(iOpt==0) sprintf(name,"sys%d_c4_1sub_Har%d_Pt%d",iS,iV,iP);
+	if(iOpt==1) sprintf(name,"sys%d_sc_1sub_Har%d_Pt%d",iS,iV,iP);
+	if(iOpt==2) sprintf(name,"sys%d_ac_1sub_Har%d_Pt%d",iS,iV,iP);
 	cOut->SetName(name);
 	cOut->Write();
 

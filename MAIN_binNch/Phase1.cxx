@@ -19,7 +19,7 @@ void Phase1::execute(int iJob)
 
 	TRandom3 ran(42);
 	Event* evt = new Event(treeIn);
-	for(int iEvt=0; iEvt<treeIn->GetEntries(); iEvt++)
+	for(int iEvt=0; iEvt<treeIn->GetEntries()/100; iEvt++)
 	{
 		if(iEvt%10000==0)
 		{

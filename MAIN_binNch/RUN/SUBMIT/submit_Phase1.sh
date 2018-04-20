@@ -2,7 +2,7 @@
 echo "RUNNING PROGRAM"
 
 job=2
-for ((I1=0;I1<660;I1+=1)) # 20*33
+for ((I1=0;I1<1;I1+=1)) # 20*33
 do
 I2=$[$I1+1]
 Filenm01=jobPhase1_$I1"_"$I2.job
