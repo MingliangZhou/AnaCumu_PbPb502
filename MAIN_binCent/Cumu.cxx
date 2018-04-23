@@ -508,7 +508,7 @@ void Cumu::cal_nc(TH1D* c2, TH1D* c4, TH1D* c6, TH1D* nc4, TH1D* nc6)
 		double p2 = c2->GetBinContent(iX+1);
 		double p4 = c4->GetBinContent(iX+1);
 		double p6 = c6->GetBinContent(iX+1);
-		if(c2==0) continue;
+		if(p2==0) continue;
 		double pc4 = p4/pow(p2,2);
 		double pc6 = p6/pow(p2,3)/4;
 		nc4->SetBinContent(iX+1,pc4);
