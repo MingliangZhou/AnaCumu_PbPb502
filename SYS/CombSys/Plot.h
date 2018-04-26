@@ -9,7 +9,7 @@
 #include "TStyle.h"
 #include "TLine.h"
 
-const unsigned int NS = 7; // number of systematic sources
+const unsigned int NS = 9; // number of systematic sources
 
 const int mS[8] = {20,21,33,34,29,22,23,27};
 const int mC[8] = {kBlue+2, kRed+2, kGreen+2, kYellow+2, kMagenta+2, kCyan+2, kOrange+2, 1};

@@ -388,11 +388,12 @@ void Plot::finalize()
 void Plot::draw_graph(vector<TGraphErrors*> vIn, int iV, int iP, int iOpt, unsigned int iBin)
 {
 	int NG = vIn.size();
-	TGraphErrors* gIn[10];
+	TGraphErrors* gIn[20];
 	for(int iG=0; iG<NG; iG++)
 	{
 		gIn[iG] = (TGraphErrors*)vIn.at(iG)->Clone("gIn");
 		if(iG==0) styleGraph(gIn[iG],0);
+		else if(iG<7) styleGraph(gIn[iG],iG-1);
 		else styleGraph(gIn[iG],iG-1);
 	}
 	for(int iG=1; iG<NG; iG++)
@@ -423,7 +424,8 @@ void Plot::draw_graph(vector<TGraphErrors*> vIn, int iV, int iP, int iOpt, unsig
 	leg->AddEntry(gIn[4],"#font[42]{pileup}","p");
 	leg->AddEntry(gIn[5],"#font[42]{MC closure}","p");
 	leg->AddEntry(gIn[6],"#font[42]{flattening}","p");
-	leg->AddEntry(gIn[7],"#font[42]{Combined}","L");
+	leg->AddEntry(gIn[7],"#font[42]{cent. def.}","p");
+	leg->AddEntry(gIn[9],"#font[42]{Combined}","L");
 
 	double xMin =  0;
 	double xMax =  80;
@@ -453,64 +455,64 @@ void Plot::draw_graph(vector<TGraphErrors*> vIn, int iV, int iP, int iOpt, unsig
 	if(iOpt==0) sprintf(name,"c_{%d}{2}",iV);
 	if(iOpt==1) sprintf(name,"c_{%d}{4}",iV);
 	if(iOpt==2) sprintf(name,"c_{%d}{6}",iV);
-	if(iOpt==3) sprintf(name,"#hat{c}_{%d}{4}",iV);
-	if(iOpt==4) sprintf(name,"#hat{c}_{%d}{6}",iV);
+	if(iOpt==3) sprintf(name,"nc_{%d}{4}",iV);
+	if(iOpt==4) sprintf(name,"nc_{%d}{6}",iV);
 	if(iOpt==5)
 	{
-		if(iV==0) sprintf(name,"SC(1,2)");
-		if(iV==1) sprintf(name,"SC(1,3)");
-		if(iV==2) sprintf(name,"SC(2,3)");
-		if(iV==3) sprintf(name,"SC(2,4)");
+		if(iV==0) sprintf(name,"sc_{1,2}{4}");
+		if(iV==1) sprintf(name,"sc_{1,3}{4}");
+		if(iV==2) sprintf(name,"sc_{2,3}{4}");
+		if(iV==3) sprintf(name,"sc_{2,4}{4}");
 	}
 	if(iOpt==6)
 	{
-		if(iV==0) sprintf(name,"#hat{SC}(1,2)");
-		if(iV==1) sprintf(name,"#hat{SC}(1,3)");
-		if(iV==2) sprintf(name,"#hat{SC}(2,3)");
-		if(iV==3) sprintf(name,"#hat{SC}(2,4)");
+		if(iV==0) sprintf(name,"nsc_{1,2}{4}");
+		if(iV==1) sprintf(name,"nsc_{1,3}{4}");
+		if(iV==2) sprintf(name,"nsc_{2,3}{4}");
+		if(iV==3) sprintf(name,"nsc_{2,4}{4}");
 	}
 	if(iOpt==7)
 	{
-		if(iV==0) sprintf(name,"ASC(1,1,2)");
-		if(iV==1) sprintf(name,"ASC(1,2,3)");
-		if(iV==2) sprintf(name,"ASC(2,2,4)");
+		if(iV==0) sprintf(name,"ac_{1,2}{3}");
+		if(iV==1) sprintf(name,"ac_{1,3}{3}");
+		if(iV==2) sprintf(name,"ac_{2,4}{3}");
 	}
 	if(iOpt==8)
 	{
-		if(iV==0) sprintf(name,"#hat{ASC}(1,1,2)");
-		if(iV==1) sprintf(name,"#hat{ASC}(1,2,3)");
-		if(iV==2) sprintf(name,"#hat{ASC}(2,2,4)");
+		if(iV==0) sprintf(name,"nac_{1,2}{3}");
+		if(iV==1) sprintf(name,"nac_{1,3}{3}");
+		if(iV==2) sprintf(name,"nac_{2,4}{3}");
 	}
 	if(iOpt==9) sprintf(name,"v_{%d} Gaussian?",iV);
 	if(iOpt==10) sprintf(name,"v_{%d} Power-law?",iV);
 	if(iOpt==11) sprintf(name,"c_{%d}{2}",iV);
 	if(iOpt==12) sprintf(name,"c_{%d}{4}",iV);
-	if(iOpt==13) sprintf(name,"#hat{c}_{%d}{4}",iV);
+	if(iOpt==13) sprintf(name,"nc_{%d}{4}",iV);
 	if(iOpt==14)
 	{
-		if(iV==0) sprintf(name,"SC(1,2)");
-		if(iV==1) sprintf(name,"SC(1,3)");
-		if(iV==2) sprintf(name,"SC(2,3)");
-		if(iV==3) sprintf(name,"SC(2,4)");
+		if(iV==0) sprintf(name,"sc_{1,2}{4}");
+		if(iV==1) sprintf(name,"sc_{1,3}{4}");
+		if(iV==2) sprintf(name,"sc_{2,3}{4}");
+		if(iV==3) sprintf(name,"sc_{2,4}{4}");
 	}
 	if(iOpt==15)
 	{
-		if(iV==0) sprintf(name,"#hat{SC}(1,2)");
-		if(iV==1) sprintf(name,"#hat{SC}(1,3)");
-		if(iV==2) sprintf(name,"#hat{SC}(2,3)");
-		if(iV==3) sprintf(name,"#hat{SC}(2,4)");
+		if(iV==0) sprintf(name,"nsc_{1,2}{4}");
+		if(iV==1) sprintf(name,"nsc_{1,3}{4}");
+		if(iV==2) sprintf(name,"nsc_{2,3}{4}");
+		if(iV==3) sprintf(name,"nsc_{2,4}{4}");
 	}
 	if(iOpt==16)
 	{
-		if(iV==0) sprintf(name,"ASC(1,1,2)");
-		if(iV==1) sprintf(name,"ASC(1,2,3)");
-		if(iV==2) sprintf(name,"ASC(2,2,4)");
+		if(iV==0) sprintf(name,"ac_{1,2}{3}");
+		if(iV==1) sprintf(name,"ac_{1,3}{3}");
+		if(iV==2) sprintf(name,"ac_{2,4}{3}");
 	}
 	if(iOpt==17)
 	{
-		if(iV==0) sprintf(name,"#hat{ASC}(1,1,2)");
-		if(iV==1) sprintf(name,"#hat{ASC}(1,2,3)");
-		if(iV==2) sprintf(name,"#hat{ASC}(2,2,4)");
+		if(iV==0) sprintf(name,"nac_{1,2}{3}");
+		if(iV==1) sprintf(name,"nac_{1,3}{3}");
+		if(iV==2) sprintf(name,"nac_{2,4}{3}");
 	}
 	hAxis->GetYaxis()->SetTitle(name);
 	hAxis->GetYaxis()->SetTitleOffset(1.6);
@@ -633,6 +635,16 @@ void Plot::draw_sepa(TGraphErrors* g0, TGraphErrors* g1, TGraphErrors* gR, int i
 	{
 		leg->AddEntry(g0,"#font[42]{default}","p");
 		leg->AddEntry(g1,"#font[42]{no flat.}","p");
+	}
+	if(iS==7)
+	{
+		leg->AddEntry(g0,"#font[42]{default}","p");
+		leg->AddEntry(g1,"#font[42]{84%% cent.}","p");
+	}
+	if(iS==8)
+	{
+		leg->AddEntry(g0,"#font[42]{default}","p");
+		leg->AddEntry(g1,"#font[42]{86%% cent.}","p");
 	}
 
 	double xMin =  0;

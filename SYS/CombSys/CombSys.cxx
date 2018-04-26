@@ -106,6 +106,8 @@ void CombSys::initialize(unsigned int iBin)
 			if(iF==0 && iS==4) sprintf(name,"../../pileup/OUTPUT/Phase3/Phase3_bin%d.root",iBin);
 			if(iF==0 && iS==5) sprintf(name,"../../mcTruth/OUTPUT/Phase3/Phase3_bin%d.root",iBin);
 			if(iF==0 && iS==6) sprintf(name,"../../flat/OUTPUT/Phase3/Phase3_bin%d.root",iBin);
+			if(iF==0 && iS==7) sprintf(name,"../../default/OUTPUT/Phase3/Phase3_bin%d.root",iBin); // FIX
+			if(iF==0 && iS==8) sprintf(name,"../../default/OUTPUT/Phase3/Phase3_bin%d.root",iBin); // FIX
 
 			if(iF==1 && iS==0) sprintf(name,"../../default/OUTPUT/Phase3/Phase3_bin%d.root",iBin);
 			if(iF==1 && iS==1) sprintf(name,"../../default/OUTPUT/Phase3/Phase3_bin%d.root",iBin);
@@ -114,6 +116,8 @@ void CombSys::initialize(unsigned int iBin)
 			if(iF==1 && iS==4) sprintf(name,"../../default/OUTPUT/Phase3/Phase3_bin%d.root",iBin);
 			if(iF==1 && iS==5) sprintf(name,"../../mcRecon/OUTPUT/Phase3/Phase3_bin%d.root",iBin);
 			if(iF==1 && iS==6) sprintf(name,"../../default/OUTPUT/Phase3/Phase3_bin%d.root",iBin);
+			if(iF==1 && iS==7) sprintf(name,"../../default/OUTPUT/Phase3/Phase3_bin%d.root",iBin);
+			if(iF==1 && iS==8) sprintf(name,"../../default/OUTPUT/Phase3/Phase3_bin%d.root",iBin);
 
 			fIn[iF][iS] = new TFile(name,"READ");
 			for(unsigned int iV=0; iV<NV; iV++)
@@ -379,6 +383,10 @@ void CombSys::smooth()
 	// sys_c2_1sub_Har4_Pt1
 	reduce_ratio(ratio_c2_1sub[2][4][1],7,0.5);
 	reduce_ratio(ratio_c2_1sub[3][4][1],7,0.5);
+	
+	// sys_c2_3sub_Har3_Pt1
+	reduce_ratio(ratio_c2_3sub[7][3][1],7,0.6);
+	reduce_ratio(ratio_c2_3sub[8][3][1],7,0.6);
 
 	// sys_c4_1sub_Har1_Pt0
 	smooth_ratio(ratio_c4_1sub[6][1][0],0,1);
@@ -389,22 +397,28 @@ void CombSys::smooth()
 	smooth_ratio(ratio_c4_1sub[3][1][1],0,0.1);
 	smooth_ratio(ratio_c4_1sub[6][1][1],2,0.2);
 	reduce_ratio(ratio_c4_1sub[3][1][1],0,0.3);
+	reduce_ratio(ratio_c4_1sub[8][1][1],5,0.3);
+	reduce_ratio(ratio_c4_1sub[8][1][1],6,0.15);
 
 	// sys_c4_1sub_Har3_Pt0
 	smooth_ratio(ratio_c4_1sub[3][3][0],6,0.2);
 	smooth_ratio(ratio_c4_1sub[6][3][0],7,0.1);
+	reduce_ratio(ratio_c4_1sub[8][3][0],5,0.3);
 
 	// sys_c4_1sub_Har3_Pt1
 	smooth_ratio(ratio_c4_1sub[3][3][1],6,0.1);
 	smooth_ratio(ratio_c4_1sub[6][3][1],7,0.1);
+	reduce_ratio(ratio_c4_1sub[8][3][1],6,0.15);
 
 	// sys_c4_1sub_Har4_Pt0
 	smooth_ratio(ratio_c4_1sub[2][4][0],7,0.1);
 	smooth_ratio(ratio_c4_1sub[3][4][0],7,0.1);
+	reduce_ratio(ratio_c4_1sub[8][4][0],2,0.3);
 
 	// sys_c4_1sub_Har4_Pt1
 	smooth_ratio(ratio_c4_1sub[2][4][1],7,0.2);
 	smooth_ratio(ratio_c4_1sub[3][4][1],7,0.2);
+	reduce_ratio(ratio_c4_1sub[8][4][1],2,0.15);
 
 	// sys_c4_3sub_Har1_Pt0
 	smooth_ratio(ratio_c4_3sub[6][1][0],0,0.001);
@@ -417,6 +431,8 @@ void CombSys::smooth()
 	reduce_ratio(ratio_c4_3sub[3][1][1],3,0.3);
 	reduce_ratio(ratio_c4_3sub[4][1][1],5,0.3);
 	reduce_ratio(ratio_c4_3sub[4][1][1],6,0.3);
+	reduce_ratio(ratio_c4_3sub[8][1][1],5,0.3);
+	reduce_ratio(ratio_c4_3sub[8][1][1],6,0.5);
 
 	// sys_c4_3sub_Har3_Pt0
 	smooth_ratio(ratio_c4_3sub[3][3][0],7,0.2);
@@ -429,6 +445,7 @@ void CombSys::smooth()
 	// sys_c4_3sub_Har4_Pt0
 	smooth_ratio(ratio_c4_3sub[6][4][0],2,0.1);
 	smooth_ratio(ratio_c4_3sub[3][4][0],2,0.2);
+	reduce_ratio(ratio_c4_3sub[8][4][0],2,0.3);
 
 	// sys_c4_3sub_Har4_Pt1
 	smooth_ratio(ratio_c4_3sub[6][4][1],2,0.2);
@@ -439,6 +456,8 @@ void CombSys::smooth()
 
 	// sys_c6_1sub_Har2_Pt1
 	smooth_ratio(ratio_c6_1sub[3][2][1],7,0.05);
+	reduce_ratio(ratio_c6_1sub[7][2][1],0,0.6);
+	reduce_ratio(ratio_c6_1sub[8][2][1],0,0.6);
 
 	// sys_c6_1sub_Har3_Pt0
 	reduce_ratio(ratio_c6_1sub[3][3][0],5,0.5);
@@ -454,36 +473,46 @@ void CombSys::smooth()
 	// sys_nc4_1sub_Har3_Pt0
 	smooth_ratio(ratio_nc4_1sub[3][3][0],6,0.1);
 	smooth_ratio(ratio_nc4_1sub[6][3][0],7,0.1);
+	reduce_ratio(ratio_nc4_1sub[8][3][0],5,0.3);
+	reduce_ratio(ratio_nc4_1sub[8][3][0],6,0.1);
 
 	// sys_nc4_1sub_Har3_Pt1
 	smooth_ratio(ratio_nc4_1sub[3][3][1],6,0.1);
 	smooth_ratio(ratio_nc4_1sub[6][3][1],7,0.1);
+	reduce_ratio(ratio_nc4_1sub[8][3][1],6,0.02);
 
 	// sys_nc4_1sub_Har4_Pt0
 	smooth_ratio(ratio_nc4_1sub[6][4][0],0,0.5);
 	smooth_ratio(ratio_nc4_1sub[6][4][0],1,0.5);
 	smooth_ratio(ratio_nc4_1sub[2][4][0],7,0.2);
 	smooth_ratio(ratio_nc4_1sub[3][4][0],7,0.2);
+	reduce_ratio(ratio_nc4_1sub[8][4][0],6,0.3);
 
 	// sys_nc4_1sub_Har4_Pt1
 	smooth_ratio(ratio_nc4_1sub[2][4][1],7,0.05);
 	smooth_ratio(ratio_nc4_1sub[3][4][1],7,0.05);
+	reduce_ratio(ratio_nc4_1sub[7][4][1],2,0.4);
+	reduce_ratio(ratio_nc4_1sub[8][4][1],2,0.2);
 	
 	// sys_nc4_3sub_Har3_Pt0
 	smooth_ratio(ratio_nc4_3sub[3][3][0],6,0.1);
 	smooth_ratio(ratio_nc4_3sub[4][3][0],6,0.1);
 	smooth_ratio(ratio_nc4_3sub[6][3][0],6,0.1);
 	smooth_ratio(ratio_nc4_3sub[6][3][0],7,0.1);
+	reduce_ratio(ratio_nc4_3sub[8][3][0],6,0.05);
 
 	// sys_nc4_3sub_Har3_Pt1
 	smooth_ratio(ratio_nc4_3sub[4][3][1],6,0.1);
 	smooth_ratio(ratio_nc4_3sub[6][3][1],6,0.1);
 	reduce_ratio(ratio_nc4_3sub[4][3][1],6,0.2);
+	reduce_ratio(ratio_nc4_3sub[8][3][1],6,0.02);
 	
 	// sys_nc4_3sub_Har4_Pt0
 	smooth_ratio(ratio_nc4_3sub[3][4][0],2,0.2);
 	smooth_ratio(ratio_nc4_3sub[6][4][0],2,0.2);
 	reduce_ratio(ratio_nc4_3sub[6][4][0],2,0.5);
+	reduce_ratio(ratio_nc4_3sub[8][4][0],2,0.5);
+	reduce_ratio(ratio_nc4_3sub[8][4][0],6,0.2);
 
 	// sys_nc4_3sub_Har4_Pt1
 	smooth_ratio(ratio_nc4_3sub[6][4][1],2,0.2);
@@ -491,19 +520,38 @@ void CombSys::smooth()
 	smooth_ratio(ratio_nc4_3sub[3][4][1],7,0.1);
 	smooth_ratio(ratio_nc4_3sub[6][4][1],6,0.1);
 	smooth_ratio(ratio_nc4_3sub[6][4][1],7,0.1);
+	reduce_ratio(ratio_nc4_3sub[8][4][1],6,0.2);
+	
+	// sys_nc6_1sub_Har3_Pt0
+	reduce_ratio(ratio_nc6_1sub[8][3][0],5,0.5);
+	reduce_ratio(ratio_nc6_1sub[8][3][0],6,0.08);
 	
 	// sys_nc6_1sub_Har3_Pt1
-	smooth_ratio(ratio_nc6_1sub[3][3][1],5,0.2);
+	smooth_ratio(ratio_nc6_1sub[3][3][1],5,0.1);
 	reduce_ratio(ratio_nc6_1sub[4][3][1],6,0.1);
+	reduce_ratio(ratio_nc6_1sub[8][3][1],5,0.5);
+	reduce_ratio(ratio_nc6_1sub[8][3][1],6,0.05);
 
 	// sys_nc6_1sub_Har4_Pt1
 	reduce_ratio(ratio_nc6_1sub[3][4][1],6,0.5);
 	reduce_ratio(ratio_nc6_1sub[4][4][1],6,0.5);
+	reduce_ratio(ratio_nc6_1sub[8][4][1],5,0.5);
+	reduce_ratio(ratio_nc6_1sub[8][4][1],6,0.3);
 
 	// sys_nsc_1sub_Har2_Pt1
 	smooth_ratio(ratio_nsc_1sub[3][2][1],6,0.2);
 	smooth_ratio(ratio_nsc_1sub[3][2][1],7,0.2);
 	smooth_ratio(ratio_nsc_1sub[6][2][1],7,0.2);
+	reduce_ratio(ratio_nsc_1sub[8][2][1],6,0.3);
+
+	// sys_nsc_1sub_Har3_Pt0
+	reduce_ratio(ratio_nsc_1sub[8][3][0],6,0.5);
+
+	// sys_nsc_1sub_Har3_Pt1
+	reduce_ratio(ratio_nsc_1sub[8][3][1],6,0.3);
+
+	// sys_nsc_3sub_Har2_Pt0
+	smooth_ratio(ratio_nsc_3sub[8][2][0],6,0.2);
 
 	// sys_nsc_3sub_Har2_Pt1
 	smooth_ratio(ratio_nsc_3sub[3][2][1],7,0.05);
@@ -514,6 +562,8 @@ void CombSys::smooth()
 	// sys_sc_3sub_Har2_Pt1
 	smooth_ratio(ratio_sc_3sub[3][2][1],7,0.05);
 	smooth_ratio(ratio_sc_3sub[6][2][1],7,0.1);
+	reduce_ratio(ratio_sc_3sub[7][2][1],7,0.3);
+	reduce_ratio(ratio_sc_3sub[8][2][1],7,0.4);
 
 	// sys_sc_3sub_Har3_Pt1
 	smooth_ratio(ratio_sc_3sub[3][3][1],7,0.05);

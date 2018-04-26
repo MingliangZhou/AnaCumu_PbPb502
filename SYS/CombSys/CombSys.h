@@ -3,7 +3,7 @@
 
 #include "../default/Rule.h"
 
-const unsigned int NS = 7; // number of systematic sources
+const unsigned int NS = 9; // number of systematic sources
 // 0: default for statistical errors
 // 1: low tracking efficiency
 // 2: high tracking efficiency
@@ -11,6 +11,8 @@ const unsigned int NS = 7; // number of systematic sources
 // 4: loose pileup rejection
 // 5: MC closure
 // 6: no flattening
+// 7: 84% centrality
+// 8: 86% centrality
 
 class CombSys
 {
