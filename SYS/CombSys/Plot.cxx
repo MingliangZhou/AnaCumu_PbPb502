@@ -394,7 +394,7 @@ void Plot::draw_graph(vector<TGraphErrors*> vIn, int iV, int iP, int iOpt, unsig
 		gIn[iG] = (TGraphErrors*)vIn.at(iG)->Clone("gIn");
 		if(iG==0) styleGraph(gIn[iG],0);
 		else if(iG<7) styleGraph(gIn[iG],iG-1);
-		else styleGraph(gIn[iG],iG-1);
+		else styleGraph(gIn[iG],6);
 	}
 	for(int iG=1; iG<NG; iG++)
 	{
@@ -639,12 +639,12 @@ void Plot::draw_sepa(TGraphErrors* g0, TGraphErrors* g1, TGraphErrors* gR, int i
 	if(iS==7)
 	{
 		leg->AddEntry(g0,"#font[42]{default}","p");
-		leg->AddEntry(g1,"#font[42]{84%% cent.}","p");
+		leg->AddEntry(g1,"#font[42]{84% cent.}","p");
 	}
 	if(iS==8)
 	{
 		leg->AddEntry(g0,"#font[42]{default}","p");
-		leg->AddEntry(g1,"#font[42]{86%% cent.}","p");
+		leg->AddEntry(g1,"#font[42]{86% cent.}","p");
 	}
 
 	double xMin =  0;

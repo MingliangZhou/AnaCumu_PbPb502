@@ -2,6 +2,16 @@
 
 MultiCorr::MultiCorr()
 {
+	for(unsigned int iP=0; iP<2; iP++)
+	{
+		for(unsigned int iT=0; iT<25; iT++)
+		{
+			sprintf(name,"cntTrig_Ps%d_Trig%d",iP,iT);
+			cntTrig[iP][iT] = new TH1D(name,"",500,0,5);
+			cntTrig[iP][iT]->Sumw2();
+		}
+	}
+	/*
 	for(unsigned int iP=0; iP<NP; iP++)
 	{
 		sprintf(name,"cnt_1sub_Pt%d",iP);
@@ -55,10 +65,12 @@ MultiCorr::MultiCorr()
 			}
 		}
 	}
+	*/
 }
 
 MultiCorr::~MultiCorr()
 {
+	/*
 	for(unsigned int iP=0; iP<NP; iP++)
 	{
 		delete cnt_1sub[iP];
@@ -110,14 +122,23 @@ MultiCorr::~MultiCorr()
 			}
 		}
 	}
+	*/
 }
 
 void MultiCorr::fill_1sub(Event* evt)
 {
+	for(unsigned int iP=0; iP<2; iP++)
+	{
+		for(unsigned int iT=0; iT<25; iT++)
+		{
+			if(!(evt->m_isTrg[iT])) continue;
+			if(iP==0) cntTrig[iP][iT]->Fill(evt->evtCls(),1.);
+			if(iP==1) cntTrig[iP][iT]->Fill(evt->evtCls(),evt->m_TrgPs[iT]);
+		}
+	}
+	/*
 	for(unsigned int iP=0; iP<NP; iP++)
 	{
-		if(iP==0 && evt->evtCls()<=5) cout<<evt->S[0][1]<<" | "<<evt->evtEt()<<" || "<<1760.*evt->evtEt()-2824<<endl;
-		if(evt->S[0][1] <= 1760.*evt->evtEt()-2824) continue;
 		double w2pc = cal_w2pc_1sub(evt,iP);
 		double w3pc = cal_w3pc_1sub(evt,iP);
 		double w4pc = cal_w4pc_1sub(evt,iP);
@@ -140,6 +161,7 @@ void MultiCorr::fill_1sub(Event* evt)
 			}
 		}
 	}
+	*/
 }
 
 void MultiCorr::fill_1sub_BG(vector<Event*> pool)
@@ -152,7 +174,6 @@ void MultiCorr::fill_1sub_BG(vector<Event*> pool)
 	{
 		for(unsigned int iP=0; iP<NP; iP++)
 		{
-			if(pool.at(A)->S[0][1] <= 1760.*pool.at(A)->evtEt()-2824) continue;
 			double w2pc1 = cal_w2pc_1sub_BG(pool.at(A),pool.at(C),iP);
 			double w2pc2 = cal_w2pc_1sub_BG(pool.at(B),pool.at(D),iP);
 			double w2pc3 = cal_w2pc_1sub_BG(pool.at(A),pool.at(D),iP);
@@ -185,7 +206,6 @@ void MultiCorr::fill_3sub(Event* evt)
 	{
 		for(unsigned int iP=0; iP<NP; iP++)
 		{
-			if(evt->S[0][1] <= 1760.*evt->evtEt()-2824) continue;
 			double w2pc1 = cal_w2pc_3sub(evt,iP,1);
 			double w2pc2 = cal_w2pc_3sub(evt,iP,2);
 			double w3pc  = cal_w3pc_3sub(evt,iP);
@@ -222,6 +242,14 @@ void MultiCorr::fill_3sub(Event* evt)
 void MultiCorr::writeHist(TFile*& fOut)
 {
   fOut->cd();
+	for(unsigned int iP=0; iP<2; iP++)
+	{
+		for(unsigned int iT=0; iT<25; iT++)
+		{
+			cntTrig[iP][iT]->Write();
+		}
+	}
+	/*
 	for(unsigned int iP=0; iP<NP; iP++)
 	{
 		cnt_1sub[iP]->Write();
@@ -237,7 +265,6 @@ void MultiCorr::writeHist(TFile*& fOut)
 			psc4_1sub_wght[iV][iP]->Write();
 			pac3_1sub_mean[iV][iP]->Write();
 			pac3_1sub_wght[iV][iP]->Write();
-			/* don't save BG
 			for(unsigned int iA=0; iA<NA; iA++)
 			{
 				pc2_1_1sub_BG_mean[iA][iV][iP]->Write();
@@ -251,7 +278,6 @@ void MultiCorr::writeHist(TFile*& fOut)
 				pc4_1sub_BG_mean[iA][iV][iP]->Write();
 				pc4_1sub_BG_wght[iA][iV][iP]->Write();
 			}
-			*/
 		}
 	}
 
@@ -275,6 +301,7 @@ void MultiCorr::writeHist(TFile*& fOut)
 			}
 		}
 	}
+	*/
 	fOut->Close();
 }
 

@@ -106,8 +106,8 @@ void CombSys::initialize(unsigned int iBin)
 			if(iF==0 && iS==4) sprintf(name,"../../pileup/OUTPUT/Phase3/Phase3_bin%d.root",iBin);
 			if(iF==0 && iS==5) sprintf(name,"../../mcTruth/OUTPUT/Phase3/Phase3_bin%d.root",iBin);
 			if(iF==0 && iS==6) sprintf(name,"../../flat/OUTPUT/Phase3/Phase3_bin%d.root",iBin);
-			if(iF==0 && iS==7) sprintf(name,"../../default/OUTPUT/Phase3/Phase3_bin%d.root",iBin); // FIX
-			if(iF==0 && iS==8) sprintf(name,"../../default/OUTPUT/Phase3/Phase3_bin%d.root",iBin); // FIX
+			if(iF==0 && iS==7) sprintf(name,"../../centLw/OUTPUT/Phase3/Phase3_bin%d.root",iBin); // FIX
+			if(iF==0 && iS==8) sprintf(name,"../../centUp/OUTPUT/Phase3/Phase3_bin%d.root",iBin); // FIX
 
 			if(iF==1 && iS==0) sprintf(name,"../../default/OUTPUT/Phase3/Phase3_bin%d.root",iBin);
 			if(iF==1 && iS==1) sprintf(name,"../../default/OUTPUT/Phase3/Phase3_bin%d.root",iBin);
