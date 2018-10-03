@@ -290,6 +290,7 @@ void Cumu::run_c_3sub()
 		for(unsigned int iP=0; iP<NP; iP++)
 		{
 			merge3sub(rbn_c4_3sub[0][iV][iP],rbn_cnt_3sub[0][iP],rbn_c4_3sub[1][iV][iP],rbn_cnt_3sub[1][iP],rbn_c4_3sub[2][iV][iP],rbn_cnt_3sub[2][iP]);
+			merge3sub(raw_c4_3sub[0][iV][iP],raw_cnt_3sub[0][iP],raw_c4_3sub[1][iV][iP],raw_cnt_3sub[1][iP],raw_c4_3sub[2][iV][iP],raw_cnt_3sub[2][iP]);
 			merge3sub(raw_p4_3sub[0][iV][iP],raw_cnt_3sub[0][iP],raw_p4_3sub[1][iV][iP],raw_cnt_3sub[1][iP],raw_p4_3sub[2][iV][iP],raw_cnt_3sub[2][iP]);
 		}
 	}
@@ -320,6 +321,7 @@ void Cumu::run_sc_3sub()
 		for(unsigned int iP=0; iP<NP; iP++)
 		{
 			merge3sub(rbn_sc_3sub[0][iV][iP],rbn_cnt_3sub[0][iP],rbn_sc_3sub[1][iV][iP],rbn_cnt_3sub[1][iP],rbn_sc_3sub[2][iV][iP],rbn_cnt_3sub[2][iP]);
+			merge3sub(raw_sc_3sub[0][iV][iP],raw_cnt_3sub[0][iP],raw_sc_3sub[1][iV][iP],raw_cnt_3sub[1][iP],raw_sc_3sub[2][iV][iP],raw_cnt_3sub[2][iP]);
 		}
 	}
 }
@@ -344,6 +346,7 @@ void Cumu::run_ac_3sub()
 		for(unsigned int iP=0; iP<NP; iP++)
 		{
 			merge3sub(rbn_ac_3sub[0][iV][iP],rbn_cnt_3sub[0][iP],rbn_ac_3sub[1][iV][iP],rbn_cnt_3sub[1][iP],rbn_ac_3sub[2][iV][iP],rbn_cnt_3sub[2][iP]);
+			merge3sub(raw_ac_3sub[0][iV][iP],raw_cnt_3sub[0][iP],raw_ac_3sub[1][iV][iP],raw_cnt_3sub[1][iP],raw_ac_3sub[2][iV][iP],raw_cnt_3sub[2][iP]);
 		}
 	}
 }
